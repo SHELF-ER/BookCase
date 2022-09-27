@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"></head>
+<body>
+<div class="container">
+    <div>
+        <h1 th:onclick="'location.href=\''+ @{${"/home"}} + '\''">SHELF-ER</h1>
+        <p>회원정보수정</p>
+        <form action="/update" method="GET">
+            <input name="id" type="text" placeholder="수정 할 회원의 번호를 입력하세요."/>
+            <br>
+            <input name="updatename" type="text" placeholder="수정 할 회원의 아이디를 입력하세요."/>
+            <br>
+            <input name="updatepw" type="password" placeholder="변경 할 비밀번호를 입력하세요"/>
+            <br>
+            <input name="update" type="submit" value="회원 수정" onclick="updatecomplete()"/>
+        </form>
+    </div>
+</div> <!-- /container -->
+</body>
+<script>
+    function updatecomplete() {
+        alert("회원수정이 완료되었습니다.")
+    }
+</script>
+</html>

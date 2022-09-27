@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>관리자 메인 페이지 - 시작</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bookLocation.css}">
+</head>
+<body>
+<section id="main">
+    <table>
+        <tr th:each="location : ${locations}">
+
+            <td th:if="${color1}==1" class="color">
+                <input th:type="submit" th:value="${bookId1}" />
+            </td>
+            <td th:unless="${color1}">
+                <input th:type="submit" th:value="${bookId1}" />
+            </td>
+
+            <td th:if="${color2}==2" class="color">
+                <input th:type="submit" th:value="${bookId2}" />
+            </td>
+            <td th:unless="${color2}">
+                <input th:type="submit" th:value="${bookId2}" />
+            </td>
+
+            <td th:if="${color3}==3" class="color">
+                <input th:type="submit" th:value="${bookId3}" />
+            </td>
+            <td th:unless="${color3}">
+                <input th:type="submit" th:value="${bookId3}" />
+            </td>
+
+            <td th:if="${color4}==4" class="color">
+                <input th:type="submit" th:value="${bookId4}" />
+            </td>
+            <td th:unless="${color4}">
+                <input th:type="submit" th:value="${bookId4}" />
+            </td>
+
+            <td th:if="${color5}==5" class="color">
+                <input th:type="submit" th:value="${bookId5}" />
+            </td>
+            <td th:unless="${color5}">
+                <input th:type="submit" th:value="${bookId5}" />
+            </td>
+
+            <td th:if="${color6}==6" class="color">
+                <input th:type="submit" th:value="${bookId6}" />
+            </td>
+            <td th:unless="${color6}">
+                <input th:type="submit" th:value="${bookId6}" />
+            </td>
+
+            <td th:if="${color7}==7" class="color">
+                <input th:type="submit" th:value="${bookId7}" />
+            </td>
+            <td th:unless="${color7}">
+                <input th:type="submit" th:value="${bookId7}" />
+            </td>
+        </tr>
+    </table>
+</section>
+</body>
+</html>

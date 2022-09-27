@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/borrow.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <title>mypage</title>
+</head>
+
+<body>
+<!-- header 시작 -->
+<header>
+    <div id="subtitle">
+        <h2>전자책</h2>
+    </div>
+    <div id="topnav">
+        <ul>
+            <li><img th:src="@{/img/home.png}"/></li>
+            <li>&#10217;</li>
+            <li><a href="/borrow">자료 검색</a></li>
+        </ul>
+    </div>
+    <div id="loginnav">
+        <ul>
+            <li th:text="${loginGo}"></li>
+            <li><a href="/main">로그아웃</a></li>
+        </ul>
+        <a href="/client"><img th:src="@{/img/loginicon.png}"/></a>
+    </div>
+</header><!-- header 끝 -->
+
+<!-- section main 시작 -->
+<section id="main">
+    <!-- left 시작 -->
+    <div id="left">
+        <div id="menu_01" class="menu">
+            <div class="menu_title">
+                <form action="/nameSharing" method="GET">
+                    <input name="Sharing" type="submit" value="자료검색"/>
+                    <input name="id" type="hidden" th:value="${loginGo2}"/>
+                    <input name="num" type="hidden" value="2"/>
+                </form>
+            </div>
+        </div>
+        <div id="menu_02" class="menu">
+            <a href="#"><div class="menu_title">인기신간</div></a>
+            <ul>
+                <li><a href="#">&#8226; 가정과 생활</a></li>
+                <li><a href="#">&#8226; 경제/비즈니스</a></li>
+                <li><a href="#">&#8226; 인문/사회</a></li>
+                <li><a href="#">&#8226; 역사</a></li>
+                <li><a href="#">&#8226; 자연/과학</a></li>
+                <li><a href="#">&#8226; 취미/건강/여행</a></li>
+                <li><a href="#">&#8226; 문화예술</a></li>
+            </ul>
+        </div>
+        <div id="menu_03" class="menu">
+            <div class="menu_title">
+                <form action="/nameSharing" method="GET">
+                    <input name="Sharing" type="submit" value="나의도서관"/>
+                    <input name="id" type="hidden" th:value="${loginGo2}"/>
+                    <input name="num" type="hidden" value="0"/>
+                </form>
+            </div>
+            <ul>
+                <form action="/nameSharing" method="GET">
+                    <li><input name="Sharing" type="submit" value="내정보"/></li>
+                    <input name="id" type="hidden" th:value="${loginGo2}"/>
+                    <input name="num" type="hidden" value="0"/>
+                </form>
+
+                <form action="/nameSharing" method="GET">
+                    <li><input name="Sharing" type="submit" value="대출현황"/></li>
+                    <input name="id" type="hidden" th:value="${loginGo2}"/>
+                    <input name="num" type="hidden" value="1"/>
+                </form>
+            </ul>
+        </div>
+    </div><!-- left 끝 -->
+
+    <!-- content 시작 -->
+    <div id="content">
+        <h1>자료검색</h1><hr>
+
+        <!-- findlist 시작 -->
+        <div id="findlist">
+            <select id="genre">
+                <option value="0">장르를 선택하세요</option>
+                <option value="1">장르 전체</option>
+                <option value="2">가정과 생활</option>
+                <option value="3">경제/비즈니스</option>
+                <option value="4">인문/사회</option>
+                <option value="5">역사</option>
+                <option value="6">자연/과학</option>
+                <option value="7">취미/건강/여행</option>
+                <option value="8">문화예술</option>
+            </select>
+            <select id="title">
+                <option value="0">제목 검색</option>
+                <option value="1">제목만</option>
+                <option value="2">저자만</option>
+                <option value="3">제목+저자</option>
+            </select>
+            <form action="/sea" method="GET">
+                <div id="searchbar">
+                    <input name="keyword" type="text"/>
+                    <input id="filterval" name="filter" type="hidden" value="0" >
+                    <input id="categoryval" name="categoryfilter" type="hidden" value="0" >
+                    <input name="id" type="hidden" th:value="${loginGo2}"/>
+                    <script language="JavaScript">
+                        document.getElementById("title").onchange = function(){document.getElementById("filterval").value=document.getElementById("title").value;}
+                        document.getElementById("genre").onchange = function(){document.getElementById("categoryval").value=document.getElementById("genre").value;}
+                    </script>
+                </div>
+                <button id="searchbtn"><img th:src="@{/img/search.png}"/></button>
+            </form>
+            <form action="/reLocation" method="get">
+                <input name="id" type="hidden" th:value="${loginGo2}"/>
+                <button id="restart" style="width: 50px ; margin-right: -60px; margin-top: -43px;"> 초기화</button>
+            </form>
+
+
+
+        </div><!-- findlist 끝 -->
+
+        <!-- result 시작 -->
+        <div th:insert="members/search.html"></div>
+        <!--<div id="result">
+          <p>검색된 책이 없습니다.</p>
+          <p>키워드를 입력해주세요!</p>
+        </div> --><!-- result 끝 -->
+    </div><!-- content 끝 -->
+</section><!-- section main 끝 -->
+
+</body>
+</html>

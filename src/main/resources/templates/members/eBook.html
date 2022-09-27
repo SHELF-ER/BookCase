@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>관리자 메인 페이지 - 시작</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/eBook.css}">
+</head>
+
+<body>
+<section id="main">
+    <table>
+        <tr th:each="member : ${members}" th:href=@{${'/ebook/'+member.id}}>
+
+            <td th:if="${member.bookCmp}" class="errorBook">
+                <form th:action="@{'/book/edit'}" method="GET">
+                    <input type="hidden" name="id" th:value="${member.id}">
+                    <input th:type="submit" th:value="${member.id}" />
+                </form>
+            </td>
+
+            <td th:unless="${member.bookCmp}">
+                <form th:action="@{'/book/edit'}" method="GET">
+                    <input type="hidden" name="id" th:value="${member.id}">
+                    <input th:type="submit" th:value="${member.id}" />
+                </form>
+            </td>
+        </tr>
+    </table>
+</section>
+</body>
+</html>

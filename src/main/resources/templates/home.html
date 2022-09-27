@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"></head>
+<body>
+<div class="container">
+    <div>
+        <h1 th:onclick="'location.href=\''+ @{${"/home"}} + '\''">SHELF-ER</h1>
+<!--        <h1 th:onclick="'location.href=\''+ @{${"/login"}} + '\''">LOGIN</h1>-->
+        <p th:onclick="'location.href=\''+ @{${"/users"}} + '\''">회원 기능</p>
+        <p>
+            <a href="/members/new">도 서 추 가</a>
+            <a href="/members">도 서 목 록</a>
+            <a href="/members/errorBookList">도서 위치</a>
+            <a href="/members/donateBook">도 서 기 부</a>
+            <a href="/bookRecommend">도 서 추 천</a>
+<!--            <a href="http://localhost:3000/donate">도 서 기 부</a>-->
+            <a href="/user">사용자 화면</a>
+
+        </p>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
