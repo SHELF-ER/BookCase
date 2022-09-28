@@ -22,6 +22,8 @@ public class Member {
 
     private String uid;
 
+    private String smartUid;
+
     private String name;
 
     private int bookNum;
@@ -45,6 +47,14 @@ public class Member {
     private Long count;
 
     private String img;
+
+    public String getSmartUid() {
+        return smartUid;
+    }
+
+    public void setRUid(String SmartUid) {
+        this.smartUid = smartUid;
+    }
 
     public String getBonor() {
         return bonor;

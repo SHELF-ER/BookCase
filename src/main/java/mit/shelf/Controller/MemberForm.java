@@ -4,6 +4,8 @@ public class MemberForm {
     private Long id;
     private String name;
     private String uid;
+
+    private String smartUid;
     private int bookNum;
 
     private String writer;
@@ -19,6 +21,14 @@ public class MemberForm {
     private Long count;
 
     private String img;
+
+    public String getSmartUid() {
+        return smartUid;
+    }
+
+    public void setSmartUid(String smartUid) {
+        this.smartUid = smartUid;
+    }
 
     public String getBonor() {
         return bonor;
