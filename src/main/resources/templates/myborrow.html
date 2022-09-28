@@ -41,7 +41,7 @@
         <div id="menu_01" class="menu">
             <div class="menu_title">
                 <form action="/nameSharing" method="GET">
-                    <input name="Sharing" type="submit" value="자료검색"/>
+                    <input id="userNameSharingMenu" name="Sharing" type="submit" value="자료검색"/>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
                     <input name="num" type="hidden" value="2"/>
                 </form>
@@ -62,23 +62,24 @@
         <div id="menu_03" class="menu">
             <div class="menu_title">
                 <form action="/nameSharing" method="GET">
-                    <input name="Sharing" type="submit" value="나의도서관"/>
+                    <input id="userNameSharingMenu2" name="Sharing" type="submit" value="나의도서관"/>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
                     <input name="num" type="hidden" value="0"/>
                 </form>
             </div>
             <ul>
                 <form action="/nameSharing" method="GET">
-                    <li><input name="Sharing" type="submit" value="내정보"/></li>
+                    <li><input id="userNameSharing" name="Sharing" type="submit" value="내정보"/></li>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
                     <input name="num" type="hidden" value="0"/>
                 </form>
-
+                <br>
                 <form action="/nameSharing" method="GET">
-                    <li><input name="Sharing" type="submit" value="대출현황"/></li>
+                    <li><input id="userNameSharing2" name="Sharing" type="submit" value="대출현황"/></li>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
                     <input name="num" type="hidden" value="1"/>
                 </form>
+                <br>
             </ul>
         </div>
     </div><!-- left 끝 -->

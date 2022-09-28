@@ -39,14 +39,14 @@
         <div id="menu_01" class="menu">
             <div class="menu_title">
                 <form action="/nameSharing" method="GET">
-                    <input name="Sharing" type="submit" value="자료검색"/>
+                    <input id="userNameSharingMenu" name="Sharing" type="submit" value="자료검색"/>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
                     <input name="num" type="hidden" value="2"/>
                 </form>
             </div>
         </div>
         <div id="menu_02" class="menu">
-            <a href="#"><div class="menu_title">인기신간</div></a>
+            <a href="#"><div class="menu_title"><div style="float: left">인기신간</div></div></a>
             <ul>
                 <li><a href="#">&#8226; 가정과 생활</a></li>
                 <li><a href="#">&#8226; 경제/비즈니스</a></li>
@@ -60,23 +60,25 @@
         <div id="menu_03" class="menu">
             <div class="menu_title">
                 <form action="/nameSharing" method="GET">
-                    <input name="Sharing" type="submit" value="나의도서관"/>
+                    <input id="userNameSharingMenu2" name="Sharing" type="submit" value="나의도서관"/>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
                     <input name="num" type="hidden" value="0"/>
                 </form>
             </div>
             <ul>
                 <form action="/nameSharing" method="GET">
-                    <li><input name="Sharing" type="submit" value="내정보"/></li>
+                    <li><input id="userNameSharing" name="Sharing" type="submit" value="내정보"/></li>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
                     <input name="num" type="hidden" value="0"/>
                 </form>
+                <br>
 
                 <form action="/nameSharing" method="GET">
-                    <li><input name="Sharing" type="submit" value="대출현황"/></li>
+                    <li><input id="userNameSharing2" name="Sharing" type="submit" value="대출현황"/></li>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
                     <input name="num" type="hidden" value="1"/>
                 </form>
+                <br>
             </ul>
         </div>
     </div><!-- left 끝 -->
@@ -90,19 +92,13 @@
             <select id="genre">
                 <option value="0">장르를 선택하세요</option>
                 <option value="1">장르 전체</option>
-                <option value="2">가정과 생활</option>
-                <option value="3">경제/비즈니스</option>
-                <option value="4">인문/사회</option>
-                <option value="5">역사</option>
-                <option value="6">자연/과학</option>
-                <option value="7">취미/건강/여행</option>
-                <option value="8">문화예술</option>
+                <option value="2">기술/과학</option>
+                <option value="3">예술</option>
+                <option value="4">문학</option>
             </select>
             <select id="title">
                 <option value="0">제목 검색</option>
-                <option value="1">제목만</option>
-                <option value="2">저자만</option>
-                <option value="3">제목+저자</option>
+                <option value="1">저자 검색</option>
             </select>
             <form action="/sea" method="GET">
                 <div id="searchbar">
@@ -116,10 +112,6 @@
                     </script>
                 </div>
                 <button id="searchbtn"><img th:src="@{/img/search.png}"/></button>
-            </form>
-            <form action="/reLocation" method="get">
-                <input name="id" type="hidden" th:value="${loginGo2}"/>
-                <button id="restart" style="width: 50px ; margin-right: -60px; margin-top: -43px;"> 초기화</button>
             </form>
 
 

@@ -153,4 +153,27 @@ header {
 }
 .menu li a:hover { color: #6485cd; }
 
+#userNameSharing, #userNameSharing2{
+    float: left;
+    border: none;
+    background-color: #efefef99;
+}
+
+#userNameSharing:hover, #userNameSharing2:hover{
+    color: #6485cd;
+}
+
+#userNameSharingMenu, #userNameSharingMenu2{
+    float: left;
+    border: none;
+    background-color: white;
+    font-size: 17px;
+    margin-top: 13px
+}
+
+#userNameSharingMenu:hover, #userNameSharingMenu2:hover{
+    background-color: #4266b11c;
+
+}
+
 /* left 끝 */

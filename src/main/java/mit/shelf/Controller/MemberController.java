@@ -97,25 +97,13 @@ public class MemberController {
 
         switch (categoryfilter){
             case "2" :
-                category = "가정과생활";
+                category = "기술/과학";
                 break;
             case "3" :
-                category = "경제/비지니스";
+                category = "예술";
                 break;
             case "4" :
-                category = "인문/사회";
-                break;
-            case "5" :
-                category = "역사";
-                break;
-            case "6" :
-                category = "자연/과학";
-                break;
-            case "7" :
-                category = "취미/건강/여행";
-                break;
-            case "8" :
-                category = "문화예술";
+                category = "문학";
                 break;
         }
 
@@ -124,7 +112,7 @@ public class MemberController {
             model.addAttribute("searchs", searchs);
 
         }
-        if (filter.equals("2")) {
+        if (filter.equals("1")) {
             List<Member> searchs = memberRepository.findByWriter(keyword);
             model.addAttribute("searchs", searchs);
         }
@@ -133,8 +121,7 @@ public class MemberController {
             List<Member> searchs = memberService.findMembers();
             model.addAttribute("searchs", searchs);
         }
-        if (categoryfilter.equals("2")||categoryfilter.equals("3")||categoryfilter.equals("4")||categoryfilter.equals("5")||
-                categoryfilter.equals("6")||categoryfilter.equals("7")||categoryfilter.equals("8")) {
+        if (categoryfilter.equals("2")||categoryfilter.equals("3")||categoryfilter.equals("4")) {
             List<Member> searchs = memberRepository.findByCategory(category);
             model.addAttribute("searchs", searchs);
         }
