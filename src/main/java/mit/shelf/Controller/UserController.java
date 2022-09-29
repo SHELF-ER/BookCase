@@ -81,7 +81,10 @@ public class UserController {
 //        return "redirect:/";
 //    }
 
-
+    @GetMapping(value = "/users/uid") public String rendList(Model model) {
+        List<User> users = libUserRepository.findAll();
+        model.addAttribute("users", users);
+        return "users/userList"; }
 
 
 
