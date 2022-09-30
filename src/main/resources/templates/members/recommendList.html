@@ -6,7 +6,7 @@
 <div class="container">
   <header class="common">
     <div class="subtitle">
-      <h2><a th:href=@{${'/'}}>HOME</a></h2>
+      <h2><a style="color: white;" th:href=@{${'/'}}>HOME</a></h2>
     </div>
     <div class="topnav">
       <ul>
@@ -31,7 +31,7 @@
 
       <tr th:each="recommend :${recommends} ">
         <td th:text="${recommend.id}">가</td>
-        <td><img height="50px" width="50px" th:src="${recommend.img}" /></td>
+        <td><img height="50px" width="50px" src="https://placeimg.com/200/200/arch" /></td><!--src="${recommend.img}"-->
         <td th:text="${recommend.name}">다</td>
         <td th:text="${recommend.writer}">라</td>
         <td th:text="${recommend.count}">마</td>

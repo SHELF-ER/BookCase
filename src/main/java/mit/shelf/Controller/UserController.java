@@ -81,10 +81,10 @@ public class UserController {
 //        return "redirect:/";
 //    }
 
-    @GetMapping(value = "/users/uid") public String rendList(Model model) {
-        List<User> users = libUserRepository.findAll();
+    @GetMapping(value = "/users/{uid}") public String rendList(@PathVariable String uid,Model model) {
+        Optional<User> users = libUserRepository.findByUidU(uid);
         model.addAttribute("users", users);
-        return "users/userList"; }
+        return "users/userRendList"; }
 
 
 

@@ -4,18 +4,29 @@
 <body>
 <div class="container">
     <div>
-        <h1 th:onclick="'location.href=\''+ @{${"/home"}} + '\''">SHELF-ER</h1>
+        <div style="position: absolute;">
+            <div style="float: left;"><h1 th:onclick="'location.href=\''+ @{${"/home"}} + '\''">SHELF-ER</h1></div>
+            <div style="float: right; margin-bottom: 150px;"><div id="clock">00:00:00</div></div>
 <!--        <h1 th:onclick="'location.href=\''+ @{${"/login"}} + '\''">LOGIN</h1>-->
-        <p>회원 기능</p>
-        <p>
-            <a href="/users/new">회 원 추 가</a>
-            <a href="/users">회 원 목 록</a>
-            <a href="/users/donateBook">기 부 내 역</a>
-<!--            <a href="http://localhost:3000/donate">도 서 기 부</a>-->
-            <a href="/main">사용자 화면</a>
+        </div>
+        <p></p>
+        <div style="margin-top: 150px;">
+            <p>
+                <a style="font-size: 18px; text-decoration: none;" onMouseOver="this.style.color='white'">회원 기능</a>
+                <a style="font-size: 18px; color: #274fb3;" onMouseOver="this.style.color='#003cd34f'" onMouseOut="this.style.color='#274fb3'" href="/">도서화면</a>
+            </p>
+            <p>
+                <a href="/users/new">회 원 추 가</a>
+                <a href="/users">회 원 목 록</a>
+                <a href="/users">회 원 목 록</a>
+                <a href="/users/donateBook">기 부 내 역</a>
+    <!--            <a href="http://localhost:3000/donate">도 서 기 부</a>-->
+                <a href="/main">사용자 화면</a>
 
-        </p>
+            </p>
+        </div>
     </div>
 </div> <!-- /container -->
+<script src="js/clock.js"></script>
 </body>
 </html>
