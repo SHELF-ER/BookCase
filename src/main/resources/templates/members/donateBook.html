@@ -1,12 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><link rel="stylesheet" type="text/css" th:href="@{/css/createMemberForm.css}"></head>
+<head><link rel="stylesheet" type="text/css" th:href="@{/css/createMemberForm.css}" href="../../static/css/createMemberForm.css"></head>
 <body>
 <div class="container">
 
     <header class="common">
         <div class="subtitle">
             <h2><a th:href=@{${'/'}}>HOME</a></h2>
+        </div>
+        <div class="topnav">
+            <ul>
+                <li>&#10217;</li>
+                <li><a src="#">도서 기부</a></li>
+            </ul>
         </div>
     </header>
 

@@ -42,6 +42,65 @@ a:link, a:visited, a:hover, a:active {
     color: #444444;
 }
 
+
+input {
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #5e5e5e;
+    border: 1px solid #5e5e5e52;
+}
+
+.submit { width: 180px; }
+.submit:hover {
+    cursor: pointer;
+    background-color: #e3e3e3;
+}
+
+.input__id {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+.filebox .upload-name {
+    display: inline-block;
+    width: 180px;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    color: #999999;
+}
+
+.filebox label {
+    display: inline-block;
+    height: 20px;
+    width: 65px;
+    padding: 10px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #999999;
+    cursor: pointer;
+    line-height: 20px;
+    margin-left: 10px;
+}
+
+.filebox label:hover {
+    background-color: #848484;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+
 img { border: 0; }
 button {
     width: 109px;
@@ -84,6 +143,10 @@ header.common {
     font-size: 29px;
     color: white;
     font-weight: bold;
+}
+
+.subtitle h2 a {
+    color: white;
 }
 
 .topnav {
@@ -162,4 +225,7 @@ td {
 
 .important {
     color: red;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    text-align: left;
 }
