@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"></head>
+<body>
+<div class="container">
+    <div>
+        <h1 th:onclick="'location.href=\''+ @{${"/home"}} + '\''">SHELF-ER</h1>
+        <p>회원 정보 삭제</p>
+        <form action="/delete" method="GET">
+            <input name="id" type="text" placeholder="제거 할 회원의 번호를 입력하세요."/>
+            <input name="delete" type="submit" value="회원 삭제" onclick="deletecomplete()"/>
+        </form>
+    </div>
+</div> <!-- /container -->
+</body>
+<script>
+    function deletecomplete() {
+        alert("회원삭제가 완료되었습니다.")
+    }
+</script>
+</html>
