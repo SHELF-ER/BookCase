@@ -87,6 +87,10 @@ header.common {
     font-weight: bold;
 }
 
+.subtitle h2 a {
+    color: white;
+}
+
 .topnav {
     float: left;
     margin: 0;

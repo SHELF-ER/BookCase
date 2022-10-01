@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><link rel="stylesheet" type="text/css" th:href="@{/css/memberList.css}"></head>
+<head><link rel="stylesheet" type="text/css" th:href="@{/css/memberList.css}" href="../../static/css/memberList.css"></head>
 <body>
 <div class="container">
   <header class="common">
@@ -16,8 +16,12 @@
   </header>
 <h2>엑셀파일로 업로드</h2>
   <form th:action="@{'/excel/read'}" method="POST" enctype="multipart/form-data">
-    <input type="file" th:name="file">
-    <input th:type="submit" value="제출" />
+    <div class="filebox">
+      <label for="file">파일찾기</label> 
+      <input class="upload-name" value="file.xlsx" placeholder="첨부파일">
+      <input type="file" id="file">
+      <input class="submit" type="submit" th:type="submit" value="제출" />
+    </div>
   </form>
 
   <div>
@@ -36,10 +40,10 @@
       <p class="important">id 클릭시 수정</p>
       <tr th:each="member : ${members}">
 
-        <td>
+        <td style="width: 50px">
           <form th:action="@{'/book/edit'}" method="GET">
             <input type="hidden" name="id" th:value="${member.id}">
-            <input th:type="submit" th:value="${member.id}" />
+            <input class="input__id" th:type="submit" th:value="${member.id}" />
           </form>
         </td>
         <td th:text="${member.name}">나</td>
@@ -55,4 +59,11 @@
   </div>
 </div> <!-- /container -->
 </body>
+
+<script>
+  $("#file").on('change',function(){
+    var fileName = $("#file").val();
+    $(".upload-name").val(fileName);
+  });
+</script>
 </html>
