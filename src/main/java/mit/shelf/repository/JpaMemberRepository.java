@@ -42,6 +42,13 @@ public class JpaMemberRepository implements MemberRepository{
                 .setParameter("uid", uid);
     }
 
+    @Override
+    public List<Member> findAllByBookFloor(int bookFloor) {
+        return em.createQuery("select m from Member m where m.bookFloor = :bookFloor", Member.class)
+                .setParameter("bookFloor", bookFloor)
+                .getResultList();
+    }
+
 //    @Override
 //    public List<Member> findDonaters() {
 //        List<Member> result = em.createQuery("select m from Member m", Member.class)

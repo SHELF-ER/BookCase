@@ -68,12 +68,30 @@ button:hover {
 h1 {
     width: 500px;
     margin-left: 44px;
-    margin-bottom: 150px;
+    margin-bottom: 60px;
     font-size: 80px;
     text-align: left;
-    background-color: #ffffff59;
     text-shadow: 1px 1px 10px #44444462;
 }
+
+h1 #title {
+    font-size: 80px;
+    text-align: left;
+    text-shadow: 1px 1px 10px #44444462;
+    color: #ffffff88;
+}
+
+h1 #sub__title {
+    width: 300px;
+    color: white;
+    text-align: left;
+    margin-top: -30px;
+    padding-left: 180px;
+    font-size: 80px;
+    text-shadow: 1px 1px 5px #3b3b3b9b;
+    background-color: #599AE250;
+}
+
 
 p {
     margin-right: 40px;

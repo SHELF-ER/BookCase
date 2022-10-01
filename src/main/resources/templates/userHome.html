@@ -6,9 +6,12 @@
     <div>
         <div style="position: absolute">
             <div style="float: left">
-                <h1 th:onclick="'location.href=\''+ @{${"/home"}} + '\''">SHELF-ER</h1>
+                <h1 th:onclick="'location.href=\''+ @{${"/home"}} + '\''">
+                    <p id="title">SHELF-ER</p>
+                    <p id="sub__title" style="">USER</p>
+                </h1>
             </div>
-            <div id="link">
+            <div id="link" style="margin-top: 25px;">
                 <a href="/">》도서화면</a>
             </div>
             <div id="clock" style="float: right">

@@ -19,5 +19,7 @@ public interface MemberRepository {
 
     void deleteById(Long uid);
 
+    List<Member> findAllByBookFloor(int bookFloor);
+
 //    List<Member> findDonaters();
 }

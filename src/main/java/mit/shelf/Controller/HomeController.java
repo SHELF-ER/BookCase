@@ -258,6 +258,31 @@ public class HomeController {
         return list;
     }
 
+    @PostMapping("/books/uidTest")
+    @ResponseBody() // JSON
+    public ArrayList<String> updateTest(@RequestBody ArrayList<ArrayList<String>> robot) throws JsonProcessingException {
+        Map<String, String> list = new HashMap<>();
+        ArrayList<String> errorB = new ArrayList<>();
+        for (int k = 0; k < robot.size(); k++) {
+            ArrayList<String> robotUids = robot.get(k);
+            List<Member> members = memberRepository.findAllByBookFloor(k+1);
+            int roof = Math.min(robotUids.size(), members.size());
+            for (int i = 0; i < roof; i++) {
+                String memberUid = members.get(i).getUid();
+                if (!(memberUid).equals(robotUids.get(i))) {
+                    Optional<Member> member = memberRepository.findByUid(memberUid);
+                    errorB.add(member.get().getUid());
+                }
+            }
+            if (insertErrorBook(errorB)) {
+                list.put("result", "true");
+            } else {
+                list.put("result", "false");
+            }
+        }
+        return errorB;
+    }
+
     @PostMapping("/books/check")
     @ResponseBody() // JSON
     public Map<String, String> listCheck(@RequestBody Map<String, ArrayList<String>> robotUid) throws JsonProcessingException {
@@ -266,7 +291,7 @@ public class HomeController {
         uidList = robotUid.get("id");
 
         List<String> bookAllUid = userRepository.selectAllUid();
-        ArrayList<Long> errorB = new ArrayList<>();
+        ArrayList<String> errorB = new ArrayList<>();
         Map<String, String> list = new HashMap<>();
         Integer countBook = userRepository.countAll();
 
@@ -275,7 +300,7 @@ public class HomeController {
             ArrayList<String> finalUidList = uidList;
             if (!(finalUidList.get(finalI).equals(bookAllUid.get(finalI)))) {
                 Optional<Member> member = memberRepository.findByUid(bookAllUid.get(finalI));
-                errorB.add(member.get().getId());
+                errorB.add(member.get().getUid());
             }
         }
         if (insertErrorBook(errorB)) {
@@ -284,6 +309,17 @@ public class HomeController {
             list.put("result", "false");
         }
         return list;
+    }
+
+    @GetMapping(value = "/books/cmpReset")
+    public String bookCmpReset() {
+        List<Member> members = memberRepository.findAll();
+        for (int i = 0; i < members.size(); i++) {
+            Member member = members.get(i);
+            member.setBookCmp(0L);
+            memberRepository.save(member);
+        }
+        return "redirect:/";
     }
 
     @GetMapping(value = "/books/list")
@@ -320,12 +356,10 @@ public class HomeController {
     }
 
 
-    public Boolean insertErrorBook(ArrayList<Long> eb) {
+    public Boolean insertErrorBook(ArrayList<String> eb) {
 
         for (int i = 0; i <= eb.size() - 1; i++) {
-            int finalI = i;
-            ArrayList<Long> finalUidList = eb;
-            Optional<Member> updateUser = memberRepository.findById(finalUidList.get(finalI));
+            Optional<Member> updateUser = memberRepository.findByUid(eb.get(i));
             updateUser.ifPresent(selectUser -> {
 
                 selectUser.setBookCmp(Long.valueOf(1));
