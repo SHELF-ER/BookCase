@@ -16,12 +16,14 @@
   </header>
 <h2>엑셀파일로 업로드</h2>
   <form th:action="@{'/excel/read'}" method="POST" enctype="multipart/form-data">
-    <div class="filebox">
-      <label for="file">파일찾기</label> 
+    <input type="file" th:name="file">
+    <input class="submit" type="submit" th:type="submit" value="제출" />
+<!--    <div class="filebox">
+      <label for="file">파일찾기</label>
       <input class="upload-name" value="file.xlsx" placeholder="첨부파일">
       <input type="file" id="file">
       <input class="submit" type="submit" th:type="submit" value="제출" />
-    </div>
+    </div>-->
   </form>
 
   <div>
@@ -61,9 +63,9 @@
 </body>
 
 <script>
-  $("#file").on('change',function(){
-    var fileName = $("#file").val();
-    $(".upload-name").val(fileName);
-  });
+  // $("#file").on('change',function(){
+  //   var fileName = $("#file").val();
+  //   $(".upload-name").val(fileName);
+  // });
 </script>
 </html>
