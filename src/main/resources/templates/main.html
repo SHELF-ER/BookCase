@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>관리자 메인 페이지</title>
+  <title>사용자 페이지</title>
   <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css" media="screen" />
 </head>
 <body>
@@ -12,7 +12,6 @@
   <div>
     <ul id="login">
       <li><a href="/login2">로그인</a></li>
-      <li><a href="/adminLogin">관리자로그인</a></li>
       <li><a href="/userinsert">회원가입</a></li>
       <li><img th:src="@{/img/usericon.png}"></li>
     </ul>
@@ -20,9 +19,8 @@
 </header>
 <section id="main">
   <h1>&#128366;SHELF-ER</h1>
-  <h3>로그인이 필요합니다. ID카드를 태그해주세요.</h3>
-  <li class="selected"><a href="../../../../../../front-end-master/start.html">대  출</a></li>
-  <li><a href="../../../../../../front-end-master/find.html">반  납</a></li>
+  <h3>로그인이 필요합니다.</h3>
+  <h3><a style="color: white;" th:href=@{${'/'}}>HOME으로 되돌아가기</a></h3>
 </section>
 </body>
 </html>

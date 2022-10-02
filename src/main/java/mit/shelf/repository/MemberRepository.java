@@ -21,5 +21,5 @@ public interface MemberRepository {
 
     List<Member> findAllByBookFloor(int bookFloor);
 
-//    List<Member> findDonaters();
+//    List<Member> findByBonor();
 }

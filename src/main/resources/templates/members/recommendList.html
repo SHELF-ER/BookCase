@@ -31,7 +31,7 @@
 
       <tr th:each="recommend :${recommends} ">
         <td th:text="${recommend.id}">가</td>
-        <td><img height="50px" width="50px" src="https://placeimg.com/200/200/arch" /></td><!--src="${recommend.img}"-->
+        <td><img height="50px" width="50px" th:src="${recommend.img}" /></td>
         <td th:text="${recommend.name}">다</td>
         <td th:text="${recommend.writer}">라</td>
         <td th:text="${recommend.count}">마</td>

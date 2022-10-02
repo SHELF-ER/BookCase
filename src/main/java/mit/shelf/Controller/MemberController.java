@@ -6,6 +6,7 @@ import mit.shelf.domain.User;
 import mit.shelf.repository.BookLocationRepository;
 import mit.shelf.repository.LoginRepository;
 import mit.shelf.repository.MemberRepository;
+import mit.shelf.repository.bookLendingRepository;
 import mit.shelf.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,9 @@ public class MemberController {
 
     @Autowired
     BookLocationRepository bookLocationRepository;
+
+    @Autowired
+    bookLendingRepository bookLendingRepository;
 
 
     @GetMapping(value = "/members") public String list(Model model) {
@@ -132,7 +136,7 @@ public class MemberController {
     }
 
 
-    @GetMapping(value = "/sea/location") public String searchLocation(@RequestParam(value = "id") Long id, @RequestParam(value = "colorval") String colorval,Model model) {
+    @GetMapping(value = "/sea/location") public String searchLocation(@RequestParam(value = "id") Long id, @RequestParam(value = "userId") Long userId, Model model) {
         int color1 = 0;
         int color2 = 0;
         int color3 = 0;
@@ -140,8 +144,12 @@ public class MemberController {
         int color5 = 0;
         int color6 = 0;
         int color7 = 0;
+        int color8 = 0;
+        int color9 = 0;
+        int color10 = 0;
+        int color11 = 0;
+        int color12 = 0;
         Long result = bookLocationRepository.findBookLocation(id);
-
         Long bookId1 = bookLocationRepository.findBookLocation(1L);
         Long bookId2 = bookLocationRepository.findBookLocation(2L);
         Long bookId3 = bookLocationRepository.findBookLocation(3L);
@@ -149,6 +157,11 @@ public class MemberController {
         Long bookId5 = bookLocationRepository.findBookLocation(5L);
         Long bookId6 = bookLocationRepository.findBookLocation(6L);
         Long bookId7 = bookLocationRepository.findBookLocation(7L);
+        Long bookId8 = bookLocationRepository.findBookLocation(8L);
+        Long bookId9 = bookLocationRepository.findBookLocation(9L);
+        Long bookId10 = bookLocationRepository.findBookLocation(10L);
+        Long bookId11 = bookLocationRepository.findBookLocation(11L);
+        Long bookId12 = bookLocationRepository.findBookLocation(12L);
 
 
 
@@ -166,8 +179,17 @@ public class MemberController {
             color6 = 6;
         else if (result == 7)
             color7 = 7;
+        else if (result == 8)
+            color8 = 8;
+        else if (result == 9)
+            color9 = 9;
+        else if (result == 10)
+            color10 = 10;
+        else if (result == 11)
+            color11 = 11;
+        else if (result == 12)
+            color12 = 12;
         model.addAttribute("locations", result);
-
         model.addAttribute("bookId1", bookId1);
         model.addAttribute("bookId2", bookId2);
         model.addAttribute("bookId3", bookId3);
@@ -175,6 +197,11 @@ public class MemberController {
         model.addAttribute("bookId5", bookId5);
         model.addAttribute("bookId6", bookId6);
         model.addAttribute("bookId7", bookId7);
+        model.addAttribute("bookId8", bookId8);
+        model.addAttribute("bookId9", bookId9);
+        model.addAttribute("bookId10", bookId10);
+        model.addAttribute("bookId11", bookId11);
+        model.addAttribute("bookId12", bookId12);
         model.addAttribute("color1", color1);
         model.addAttribute("color2", color2);
         model.addAttribute("color3", color3);
@@ -182,9 +209,28 @@ public class MemberController {
         model.addAttribute("color5", color5);
         model.addAttribute("color6", color6);
         model.addAttribute("color7", color7);
+        model.addAttribute("color8", color8);
+        model.addAttribute("color9", color9);
+        model.addAttribute("color10", color10);
+        model.addAttribute("color11", color11);
+        model.addAttribute("color12", color12);
+
+        User result1 = loginRepository.userNameIdSharing(userId);
+
+        model.addAttribute("loginGo", result1.getName());
+        model.addAttribute("loginGo2", result1.getId());
 
 
         return "/members/bookLocation";
+    }
+
+    @GetMapping(value = "/bookLending") public String bookLending(@RequestParam(value = "name") String name,  @RequestParam(value = "id") Long id ,Model model) {
+        List<Member> result = bookLendingRepository.findByBookLending(name);
+        User result1 = loginRepository.userNameIdSharing(id);
+        model.addAttribute("lendingList", result);
+        model.addAttribute("loginGo", result1.getName());
+        model.addAttribute("loginGo2", result1.getId());
+        return "/myborrow";
     }
 
 

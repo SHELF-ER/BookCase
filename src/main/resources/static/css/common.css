@@ -171,6 +171,19 @@ header {
     margin-top: 13px
 }
 
+#backPage{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    background-color: #7196DB;
+    margin-top: 300px;
+}
+
+#backPage:hover{
+    color: #D8CCAD;
+}
+
 #userNameSharingMenu:hover, #userNameSharingMenu2:hover{
     background-color: #4266b11c;
 

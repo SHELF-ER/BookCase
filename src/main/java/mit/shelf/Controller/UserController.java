@@ -1,5 +1,6 @@
 package mit.shelf.Controller;
 
+import mit.shelf.domain.Member;
 import mit.shelf.domain.User;
 import mit.shelf.repository.LibUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,5 +120,27 @@ public class UserController {
 
     @GetMapping(value = "/users/new") public String createForm() {
         return "users/createUserForm";
+    }
+
+    @RequestMapping(value = "/user/edit", method = RequestMethod.GET)
+    public String userEdit(@RequestParam("id") Long id, Model model) {
+        Optional<User> user = libUserRepository.findById(id);
+        user.ifPresent(selectUser -> {
+            model.addAttribute("user", user);
+        });
+        return "users/editUserForm";
+    }
+
+    @PostMapping("/user/edit")
+    public String updateBook(UserForm form) {
+
+        Optional<User> updateUser = libUserRepository.findById(form.getId());
+        updateUser.ifPresent(user -> {
+            user.setName(form.getName());
+            user.setUid(form.getUid());
+            user.setPw(form.getPw());
+            libUserRepository.save(user);
+        });
+        return "redirect:/";
     }
 }

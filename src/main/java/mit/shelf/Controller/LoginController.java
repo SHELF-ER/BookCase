@@ -27,7 +27,7 @@ public class LoginController {
             }
             return "/client";
         }
-        return "/login";
+        return "/login2";
     }
     @GetMapping(value = "/nameSharing") public String nameSharing(@RequestParam(value = "id") Long id, @RequestParam(value = "num") String num, Model model) {
         User result1 = LoginRepository.userNameIdSharing(id);

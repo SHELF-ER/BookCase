@@ -415,7 +415,7 @@ public class HomeController {
 
 //    @GetMapping(value = "/donater")
 //    public String donater(Model model){
-//        List<Member> members = memberRepository.findDonaters();
+//        List<Member> members = memberRepository.findByBonor();
 //        model.addAttribute("members", members);
 //
 //        return "members/eBook";
