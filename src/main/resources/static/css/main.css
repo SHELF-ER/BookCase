@@ -87,6 +87,17 @@ header {
     color: white;
     font-size: 25px;
     text-align: center;
+    font-weight: normal;
+}
+
+#main h3 a {
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+#main h3 a:hover {
+    color: #fffc;
 }
 
 #main li {

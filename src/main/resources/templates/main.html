@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>사용자 페이지</title>
-  <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css" media="screen" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css" text/css" media="screen" />
 </head>
 <body>
 <header>
@@ -20,7 +20,7 @@
 <section id="main">
   <h1>&#128366;SHELF-ER</h1>
   <h3>로그인이 필요합니다.</h3>
-  <h3><a style="color: white;" th:href=@{${'/'}}>HOME으로 되돌아가기</a></h3>
+  <h3><a th:href=@{${'/'}}>HOME으로</a></h3>
 </section>
 </body>
 </html>

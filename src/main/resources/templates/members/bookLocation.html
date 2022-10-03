@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>도서 위치 검색</title>
-    <link rel="stylesheet" th:href="@{/css/common.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bookLocation.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}" href="../../static/css/common.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bookLocation.css}" href="../../static/css/bookLocation.css">
 </head>
 <body>
 <form action="/nameSharing" method="GET">
-    <input id="backPage" name="Sharing" type="submit" value="이전 페이지로"/>
+    <input id="backPage" name="Sharing" type="submit" value="이전 페이지로" style="width: 100px;"/>
     <input name="id" type="hidden" th:value="${loginGo2}"/>
     <input name="num" type="hidden" value="2"/>
 </form>

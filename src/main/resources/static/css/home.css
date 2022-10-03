@@ -156,4 +156,24 @@ p a:hover {
     font-size: 30px;
 }
 
+#loginForm input {
+    font-size: 18px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fffc;
+}
+#loginForm input:hover {
+    background-color: #f3f3f3cc;
+}
+
+#loginForm input[type='submit'] {
+    padding: 13px;
+    background-color: #8f9ec5c9;
+    color: white;
+}
+
+#loginForm input[type='submit']:hover {
+    cursor: pointer;
+    background-color: #7e95cec9;
+}
 /* container 끝 */

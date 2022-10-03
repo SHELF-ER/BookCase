@@ -147,6 +147,11 @@ header.common {
 
 .subtitle h2 a {
     color: white;
+    cursor: pointer;
+}
+
+.subtitle h2 a:hover {
+    color: #fffc;
 }
 
 .topnav {
@@ -175,7 +180,7 @@ header.common {
 }
 .topnav li:hover a {
     cursor: pointer;
-    color: #1b2746;
+    color: #fffc;
 }
 
 .topnav img {

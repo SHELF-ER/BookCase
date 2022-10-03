@@ -31,6 +31,8 @@ li {
     display: inline;
 }
 
+h3 { margin-top: 40px; }
+
 a:link, a:visited, a:hover, a:active {
     text-decoration: none;
     color: #444444;
@@ -41,10 +43,15 @@ input {
     border: none;
 }
 
-tr { display: block; float: left; }
-
 .clear { clear: both; }
 .bdright { border-right: 1px solid #AAA; }
+.awhite, .awhite:link, .awhite:visited, .awhite:active {
+    color: white;
+    font-size: 18px;
+}
+.awhite:hover {
+    color: #fffc;
+}
 
 header {
     width: 100%;
@@ -102,6 +109,11 @@ table {
     border-spacing: 5px;
 }
 
+table tr {
+    display: block;
+    float: left;
+}
+
 table th {
     background-color: white;
     border: 1px solid black;
@@ -111,11 +123,22 @@ table th {
 table td {
     background-color: white;
     border: 1px solid #aaaaaa;
-    width: 40px;
-    height: 100px;
+    width: 80px;
+    height: 150px;
     display: block;
+}
+
+table td input {
+    padding: 50px 0;
+    font-size: 32px;
+    text-align: center;
+    width: 100%;
 }
 
 table .errorBook {
     background-color: red;
+}
+
+table .errorBook input {
+    color: white;
 }

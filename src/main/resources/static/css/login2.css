@@ -78,6 +78,14 @@ header.common {
     font-weight: bold;
 }
 
+.subtitle h1 a {
+    color: white;
+}
+
+.subtitle h1 a:hover {
+    color: #fffc;
+}
+
 .topnav {
     float: left;
     margin: 0;
@@ -104,7 +112,7 @@ header.common {
 }
 .topnav li:hover a {
     cursor: pointer;
-    color: #1b2746;
+    color: #fffc;
 }
 
 

@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"></head>
+<head><link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" href="../static/css/home.css"></head>
 <body>
 <div class="container">
-    <div>
+    <div id="loginForm">
         <h1 th:onclick="'location.href=\''+ @{${"/home"}} + '\''" style="color: white">SHELF-ER</h1>
         <p>관리자 로그인</p>
         <form action="/logins" method="post">

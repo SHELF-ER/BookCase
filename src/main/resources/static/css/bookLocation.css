@@ -1,5 +1,3 @@
-tr { display: block; float: left; }
-
 @charset "UTF-8";
 
 * {
@@ -44,6 +42,17 @@ a:link, a:visited, a:hover, a:active {
 header {
     width: 100%;
     margin: 0 auto;
+}
+
+tr {
+    display: block;
+    float: left;
+}
+
+input {
+    width: 50px;
+    border: none;
+    background-color: transparent;
 }
 
 #main {
