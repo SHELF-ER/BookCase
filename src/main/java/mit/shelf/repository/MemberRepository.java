@@ -21,5 +21,7 @@ public interface MemberRepository {
 
     List<Member> findAllByBookFloor(int bookFloor);
 
+    Optional<Member> findBySmartUid(String smartUid);
+
 //    List<Member> findByBonor();
 }

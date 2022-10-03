@@ -143,4 +143,10 @@ public class UserController {
         });
         return "redirect:/";
     }
+
+/*    @RequestMapping(value = "/book/delete", method = RequestMethod.GET)
+    public String deleteBook(@RequestParam("uid") Long uid) {
+        libUserRepository.deleteById(uid);
+        return "/members/memberList";
+    }*/
 }

@@ -104,30 +104,30 @@ public class HomeController {
     }
 
 
-    @RequestMapping(value = "/book/return/{uid}", method = RequestMethod.GET)
+    @RequestMapping(value = "/book/return/{smartUid}", method = RequestMethod.GET)
     @ResponseBody() // JSON
-    public Map<String, String> findUUid(@PathVariable String uid) {
+    public Map<String, String> findUUid(@PathVariable String smartUid) {
 
-        Optional<Member> user = memberRepository.findByUid(uid);
-        Optional<User> userN = libUserRepository.findByUUid(uid);
+        Optional<Member> user = memberRepository.findBySmartUid(smartUid);
+        Optional<User> userN = libUserRepository.findByUUid(smartUid);
         Map<String, String> list = new HashMap<>();
 
         if (user.isPresent() && userN.isPresent()) {
             Member userIId = user.get();
             User borrowUser = userN.get();
-            userIId.setBorrower("대여가능");
+            userIId.setBorrower("X");
 
             String tmp1 = borrowUser.getBorrow1();
             String tmp2 = borrowUser.getBorrow2();
             String tmp3 = borrowUser.getBorrow3();
 
-            if (tmp1.equals(uid)) {
+            if (tmp1.equals(smartUid)) {
                 borrowUser.setBorrow1("X");
             }
-            else if (tmp2.equals(uid)) {
+            else if (tmp2.equals(smartUid)) {
                 borrowUser.setBorrow2("X");
             }
-            else if (tmp3.equals(uid)) {
+            else if (tmp3.equals(smartUid)) {
                 borrowUser.setBorrow3("X");
             }
             memberRepository.save(userIId);
@@ -140,27 +140,58 @@ public class HomeController {
         return list;
     }
 
-    @RequestMapping(value = "/book/return/check/{uid}", method = RequestMethod.GET)
+    @RequestMapping(value = "/book/return/check/{smartUid}/{userUid}", method = RequestMethod.GET)
     @ResponseBody() // JSON
-    public Map<String, String> findBookName(@PathVariable String uid) {
-
-        Optional<Member> user = memberRepository.findByUid(uid);
+    public Map<String, String> findBookName(@PathVariable String smartUid, @PathVariable String userUid) {
+        Optional<Member> member = memberRepository.findBySmartUid(smartUid);
+        Optional<User> user = libUserRepository.findByUidU(userUid);
         Map<String, String> list = new HashMap<>();
 
-        if (user.isPresent()) {
-            Member userIId = user.get();
-            list.put("book", String.valueOf(userIId.getName()));
+        if (member.isPresent()&& user.isPresent()) {
+            Member userIId = member.get();
+            User userId = user.get();
+            if (userIId.getBorrower().equals(userId.getName())) {
+                list.put("book", String.valueOf(userIId.getName()));
+            }
+            else {
+                list.put("book","cant");
+            }
         } else {
             list.put("book", "error");
         }
-
         return list;
     }
 
-    @RequestMapping(value = "/book/lendList/{bookUid}", method = RequestMethod.GET)
+    @RequestMapping(value = "/book/lend/check/{smartUid}/{userUid}", method = RequestMethod.GET)
     @ResponseBody() // JSON
-    public Map<String, String> findBorrower(@PathVariable String bookUid) {
-        Optional<Member> user = memberRepository.findByUid(bookUid);
+    public Map<String, String> findBookName2(@PathVariable String smartUid, @PathVariable String userUid) {
+        Optional<Member> member = memberRepository.findBySmartUid(smartUid);
+        Optional<User> user = libUserRepository.findByUidU(userUid);
+        Map<String, String> list = new HashMap<>();
+
+        if (member.isPresent() && user.isPresent()) {
+            Member userIId = member.get();
+            User userId = user.get();
+            if (!userId.getBorrow1().equals("X") && !userId.getBorrow2().equals("X") && !userId.getBorrow3().equals("X")) {
+                list.put("book","full");
+            }
+            else {
+                if (userIId.getBorrower().equals("X")) {
+                    list.put("book", String.valueOf(userIId.getName()));
+                } else {
+                    list.put("book", "cant");
+                }
+            }
+        } else {
+            list.put("book", "error");
+        }
+        return list;
+    }
+
+    @RequestMapping(value = "/book/lendList/{smartUid}", method = RequestMethod.GET)
+    @ResponseBody() // JSON
+    public Map<String, String> findBorrower(@PathVariable String smartUid) {
+        Optional<Member> user = memberRepository.findBySmartUid(smartUid);
         Map<String, String> list = new HashMap<>();
 
         if (user.isPresent()) {
@@ -173,41 +204,40 @@ public class HomeController {
         }
         return list;
     }
-    @RequestMapping(value = "/book/lend/{userUid}/{bookUid}", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/book/lend/{userUid}/{smartUid}", method = RequestMethod.GET)
     @ResponseBody() // JSON
-    public Map<String, String> lendBook(@PathVariable String userUid,@PathVariable String bookUid) {
-        Optional<Member> book = memberRepository.findByUid(bookUid);
+    public Map<String, String> lendBook(@PathVariable String userUid,@PathVariable String smartUid) {
+        Optional<Member> book = memberRepository.findBySmartUid(smartUid);
         Optional<User> user = libUserRepository.findByUidU(userUid);
         Map<String, String> list = new HashMap<>();
 
         if (book.isPresent() && user.isPresent()) {
             Member bookId = book.get();
             bookId.setBorrower(user.get().getName());
+            bookId.setCount(bookId.getCount()+1);
             memberRepository.save(bookId);
             User userId = user.get();
             if (userId.getBorrow1().equals("X") || (userId.getBorrow1().equals("대여가능"))) {
-                userId.setBorrow1(bookUid);
+                userId.setBorrow1(smartUid);
                 libUserRepository.save(userId);
                 list.put("result", "success");
                 list.put("book", String.valueOf(bookId.getName()));
                 list.put("user",String.valueOf(user.get().getName()));
             }
             else if (userId.getBorrow2().equals("X") || (userId.getBorrow2().equals("대여가능"))) {
-                userId.setBorrow2(bookUid);
+                userId.setBorrow2(smartUid);
                 libUserRepository.save(userId);
                 list.put("result", "success");
                 list.put("book", String.valueOf(bookId.getName()));
                 list.put("user",String.valueOf(user.get().getName()));
             }
             else if (userId.getBorrow3().equals("X") || (userId.getBorrow3().equals("대여가능"))) {
-                userId.setBorrow3(bookUid);
+                userId.setBorrow3(smartUid);
                 libUserRepository.save(userId);
                 list.put("result", "success");
                 list.put("book", String.valueOf(bookId.getName()));
-                list.put("user",String.valueOf(user.get().getName()));
-            }
-            else {
-                list.put("result", "full");
+                list.put("user", String.valueOf(user.get().getName()));
             }
         } else {
             list.put("result", "error");

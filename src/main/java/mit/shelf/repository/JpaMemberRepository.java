@@ -71,7 +71,13 @@ public class JpaMemberRepository implements MemberRepository{
                 .getResultList();
         return result;
     }
-
+    @Override
+    public Optional<Member> findBySmartUid(String smartUid) {
+        List<Member> result = em.createQuery("select m from Member m where m.smartUid = :smartUid", Member.class)
+                .setParameter("smartUid", smartUid)
+                .getResultList();
+        return result.stream().findAny();
+    }
 
     public List<Member> findByWriter(String writer) {
         List<Member> result = em.createQuery("select m from Member m where m.writer = :writer", Member.class)
@@ -86,6 +92,7 @@ public class JpaMemberRepository implements MemberRepository{
                 .getResultList();
         return result;
     }
+
 
 
 }
