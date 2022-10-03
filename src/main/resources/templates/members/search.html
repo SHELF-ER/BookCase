@@ -28,7 +28,7 @@
       </thead>
       <tbody>
       <tr th:each="search : ${searchs}">
-        <td>
+        <td style="width: 50px">
           <form th:action="@{'/sea/location'}" method="GET">
             <input type="hidden" name="id" th:value="${search.id}">
             <input type="hidden" name="userId" th:value="${loginGo2}">

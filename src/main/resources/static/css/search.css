@@ -168,6 +168,11 @@ td {
     vertical-align: middle;
 }
 
+input {
+    border: none;
+    background-color: transparent;
+}
+
 /* container 끝 */
 
 .important {
