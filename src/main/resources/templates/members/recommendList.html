@@ -19,7 +19,7 @@
     <table>
       <thead>
       <tr>
-        <th>#</th>
+        <th style="width: 50px">#</th>
         <th>사진</th>
         <th>책제목</th>
         <th>작 가</th>
@@ -30,7 +30,7 @@
       <tbody>
 
       <tr th:each="recommend :${recommends} ">
-        <td th:text="${recommend.id}">가</td>
+        <td th:text="${recommend.id}" style="width: 50px">가</td>
         <td><img height="50px" width="50px" th:src="${recommend.img}" /></td>
         <td th:text="${recommend.name}">다</td>
         <td th:text="${recommend.writer}">라</td>

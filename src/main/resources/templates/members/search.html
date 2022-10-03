@@ -18,7 +18,7 @@
     <table>
       <thead>
       <tr>
-        <th>#</th>
+        <th style="width: 50px">#</th>
         <th>책제목</th>
         <th>책이 있는 층</th>
         <th>빌린 사람</th>
@@ -28,7 +28,7 @@
       </thead>
       <tbody>
       <tr th:each="search : ${searchs}">
-        <td style="width: 50px">
+        <td>
           <form th:action="@{'/sea/location'}" method="GET">
             <input type="hidden" name="id" th:value="${search.id}">
             <input type="hidden" name="userId" th:value="${loginGo2}">

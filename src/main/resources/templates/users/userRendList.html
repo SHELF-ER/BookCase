@@ -28,7 +28,7 @@
     <table>
       <thead>
       <tr>
-        <th>#</th>
+        <th style="width: 50px">#</th>
         <th>도서명</th>
         <th>저자</th>
         <th>카테고리</th>
@@ -38,7 +38,7 @@
       <p class="important">id 클릭시 수정</p>
       <tr th:each="user : ${users}">
 
-        <td style="width: 50px">
+        <td>
           <form th:action="@{'/user/edit'}" method="GET">
             <input type="hidden" name="id" th:value="${user.id}">
             <input class="input__id" th:type="submit" th:value="${user.id}" />
