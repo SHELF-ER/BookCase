@@ -176,9 +176,10 @@ header {
 #userNameSharingMenu, #userNameSharingMenu2{
     float: left;
     border: none;
-    background-color: white;
+    background-color: transparent;
     font-size: 17px;
-    margin-top: 13px
+    margin-top: 12px;
+    cursor: pointer;
 }
 
 #backPage{
@@ -195,7 +196,7 @@ header {
 }
 
 #userNameSharingMenu:hover, #userNameSharingMenu2:hover{
-    background-color: #4266b11c;
+    background-color: transparent;
 
 }
 
