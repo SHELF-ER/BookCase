@@ -66,12 +66,8 @@ header {
     float: left;
     margin: 0;
     margin-left: 30px;
-    padding-top: 13px;
-    vertical-align: middle;
-}
-
-.topnav {
     padding-top: 4px;
+    vertical-align: middle;
 }
 
 #topnav li {
@@ -90,13 +86,9 @@ header {
 #topnav li a:hover { color: #6485cd; }
 
 #topnav img {
-    margin-top: -5px;
+    margin-top: 4px;
     width: 24px;
     height: 26px;
-}
-
-.homeimg {
-    margin-top: 4px;
 }
 
 #loginnav {

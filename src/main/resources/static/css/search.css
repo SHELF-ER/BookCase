@@ -65,6 +65,7 @@ header.common {
     height: 49.1px;
     margin: 37px 0;
     background-color: #7e95cec9;
+    margin-top: 100px;
 }
 
 .subtitle {
@@ -84,6 +85,15 @@ header.common {
     font-size: 29px;
     color: white;
     font-weight: bold;
+}
+
+.subtitle h2 a {
+    color: white;
+    cursor: pointer;
+}
+
+.subtitle h2 a:hover {
+    color: #fffc;
 }
 
 .topnav {
@@ -112,7 +122,7 @@ header.common {
 }
 .topnav li:hover a {
     cursor: pointer;
-    color: #1b2746;
+    color: #fffc;
 }
 
 .topnav img {

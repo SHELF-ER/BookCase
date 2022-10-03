@@ -16,11 +16,11 @@
   </div>
   <div id="topnav">
     <ul>
-      <li><img th:src="@{/img/home.png}" /></li>
+      <li><a href="/"><img th:src="@{/img/home.png}" /></a></li>
       <li>&#10217;</li>
-      <li><a href="./client.html">나의 도서관</a></li>
+      <li><a href="/client">나의 도서관</a></li>
       <li>&#10217;</li>
-      <li><a href="./client.html">내 정보</a></li>
+      <li><a href="/client">내 정보</a></li>
     </ul>
   </div>
   <div id="loginnav">
@@ -28,7 +28,7 @@
       <li th:text="${loginGo}"></li>
       <li><a href="/main">로그아웃</a></li>
     </ul>
-    <a href="./client.html"><img th:src="@{/img/loginicon.png}"/></a>
+    <a href="/client"><img th:src="@{/img/loginicon.png}"/></a>
   </div>
 </header><!-- header 끝 -->
 
