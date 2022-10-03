@@ -33,10 +33,9 @@
             <label for="uid">기부 하신 분</label>
             <input type="text" id="bonor" name="bonor" th:value="${member.get().getBonor()}">
         </div>
-        <button type="submit">등록</button>
-
+        <button class="subbtn" type="submit">등록</button>
     </form>
-    <button th:onclick="|location.href='@{delete(uid=${member.get().getId()})}'|">삭제</button>
+    <button class="dltbtn" th:onclick="|location.href='@{delete(uid=${member.get().getId()})}'|">삭제</button>
 </div> <!-- /container -->
 </body>
 </html>

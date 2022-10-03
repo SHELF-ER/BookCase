@@ -20,8 +20,8 @@
 <!--    <input class="submit" type="submit" th:type="submit" value="제출" />-->
     <div class="filebox">
       <label for="file">파일찾기</label>
-      <input id="upload-name" value="file.xlsx" placeholder="첨부파일" onchange="changeSelectedValue()" style="padding: 0 7px">
-      <input id="file" type="file" th:name="file">
+      <input id="upload-name" value="file.xlsx" placeholder="첨부파일" style="padding: 0 7px">
+      <input id="file" type="file" th:name="file" onchange="changeSelectedValue()">
       <input class="submit" type="submit" th:type="submit" value="제출" />
     </div>
   </form>

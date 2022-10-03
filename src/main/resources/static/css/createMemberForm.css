@@ -43,6 +43,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 img { border: 0; }
+
 button {
     width: 109px;
     height: 40px;
@@ -55,6 +56,15 @@ button {
 button:hover {
     cursor: pointer;
     background-color: #efefef99;
+}
+
+.dltbtn {
+    margin-top: 3px;
+    margin-bottom: 80px;
+    background-color: #f7f7f7;
+}
+.dltbtn:hover {
+    background-color: #eee;
 }
 
 /* 초기화 끝 */
@@ -89,6 +99,11 @@ header.common {
 
 .subtitle h2 a {
     color: white;
+    cursor: pointer;
+}
+
+.subtitle h2 a:hover {
+    color: #fffc;
 }
 
 .topnav {
@@ -117,7 +132,7 @@ header.common {
 }
 .topnav li:hover a {
     cursor: pointer;
-    color: #1b2746;
+    color: #fffc;
 }
 
 .topnav img {
