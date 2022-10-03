@@ -19,7 +19,6 @@ public class LoginController {
         String result2 = LoginRepository.findByUserName(name);
         Long result3 = LoginRepository.findByUserId(name);
         if(pw.equals(result1)){
-
             model.addAttribute("loginGo", result2);
             model.addAttribute("loginGo2", result3);
             if(result2.equals("admin")){

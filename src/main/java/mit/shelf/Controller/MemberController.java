@@ -149,6 +149,8 @@ public class MemberController {
         int color10 = 0;
         int color11 = 0;
         int color12 = 0;
+        int color13 = 0;
+        int color14 = 0;
         Long result = bookLocationRepository.findBookLocation(id);
         Long bookId1 = bookLocationRepository.findBookLocation(1L);
         Long bookId2 = bookLocationRepository.findBookLocation(2L);
@@ -162,6 +164,8 @@ public class MemberController {
         Long bookId10 = bookLocationRepository.findBookLocation(10L);
         Long bookId11 = bookLocationRepository.findBookLocation(11L);
         Long bookId12 = bookLocationRepository.findBookLocation(12L);
+        Long bookId13 = bookLocationRepository.findBookLocation(13L);
+        Long bookId14 = bookLocationRepository.findBookLocation(14L);
 
 
 
@@ -189,6 +193,10 @@ public class MemberController {
             color11 = 11;
         else if (result == 12)
             color12 = 12;
+        else if (result == 13)
+            color13 = 13;
+        else if (result == 14)
+            color14 = 15;
         model.addAttribute("locations", result);
         model.addAttribute("bookId1", bookId1);
         model.addAttribute("bookId2", bookId2);
@@ -214,6 +222,8 @@ public class MemberController {
         model.addAttribute("color10", color10);
         model.addAttribute("color11", color11);
         model.addAttribute("color12", color12);
+        model.addAttribute("color13", color13);
+        model.addAttribute("color14", color14);
 
         User result1 = loginRepository.userNameIdSharing(userId);
 

@@ -14,13 +14,6 @@
 <section id="main">
     <table>
         <tr>
-            <td th:if="${color7}==7" class="color">
-                <input th:type="submit" th:value="${bookId7}" />
-            </td>
-            <td th:unless="${color7}">
-                <input th:type="submit" th:value="${bookId7}" />
-            </td>
-
             <td th:if="${color8}==8" class="color">
                 <input th:type="submit" th:value="${bookId8}" />
             </td>
@@ -51,6 +44,16 @@
             <td th:unless="${color12}">
                 <input th:type="submit" th:value="${bookId12}" />
             </td>
+            <td th:if="${color13}==13" class="color">
+                <input th:type="submit" th:value="${bookId13}" />
+            </td>
+            <td th:unless="${color13}">
+                <input th:type="submit" th:value="${bookId13}" />
+            <td th:if="${color14}==14" class="color">
+                <input th:type="submit" th:value="${bookId14}" />
+            </td>
+            <td th:unless="${color14}">
+                <input th:type="submit" th:value="${bookId14}" />
         </tr>
     </table>
     <table>
@@ -95,6 +98,12 @@
             </td>
             <td th:unless="${color6}">
                 <input th:type="submit" th:value="${bookId6}" />
+            </td>
+            <td th:if="${color7}==7" class="color">
+                <input th:type="submit" th:value="${bookId7}" />
+            </td>
+            <td th:unless="${color7}">
+                <input th:type="submit" th:value="${bookId7}" />
             </td>
         </tr>
     </table>

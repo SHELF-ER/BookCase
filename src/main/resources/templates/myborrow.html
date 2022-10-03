@@ -40,7 +40,7 @@
     <div id="left">
         <div id="menu_01" class="menu">
             <div class="menu_title">
-                <form action="/borrow" method="GET">
+                <form action="/nameSharing" method="GET">
                     <input id="userNameSharingMenu" name="Sharing" type="submit" value="자료검색"/>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
                     <input name="num" type="hidden" value="2"/>
@@ -61,20 +61,21 @@
         </div>
         <div id="menu_03" class="menu">
             <div class="menu_title">
-                <form action="/myborrow" method="GET">
+                <form action="/bookLending" method="GET">
                     <input id="userNameSharingMenu2" name="Sharing" type="submit" value="나의도서관"/>
+                    <input name="name" type="hidden" th:value="${loginGo}"/>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
-                    <input name="num" type="hidden" value="0"/>
+                    <input name="num" type="hidden" value="1"/>
                 </form>
             </div>
             <ul>
-                <form action="/client" method="GET">
+                <form action="/nameSharing" method="GET">
                     <li><input id="userNameSharing" name="Sharing" type="submit" value="내정보"/></li>
-<!--                    <input name="id" type="hidden" th:value="${loginGo2}"/>-->
-<!--                    <input name="num" type="hidden" value="0"/>-->
+                    <input name="id" type="hidden" th:value="${loginGo2}"/>
+                    <input name="num" type="hidden" value="0"/>
                 </form>
                 <br>
-                <form action="/myborrow" method="GET">
+                <form action="/bookLending" method="GET">
                     <li><input id="userNameSharing2" name="Sharing" type="submit" value="대출현황"/></li>
                     <input name="name" type="hidden" th:value="${loginGo}"/>
                     <input name="id" type="hidden" th:value="${loginGo2}"/>
