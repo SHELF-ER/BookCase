@@ -271,17 +271,19 @@ public class HomeController {
     //2층으로 수정
     @PostMapping("/books/uid")
     @ResponseBody() // JSON
-    public Map<String, String> update(@RequestBody Map<String, ArrayList<String>> robotUid) throws JsonProcessingException {
-        ArrayList<String> uidList = robotUid.get("id");
-        Integer countBook = userRepository.countAll();
-
-        for (int i = 0; i < countBook; i++) {
-            Optional<Member> updateUser = memberRepository.findById((long) i + 1);
-            int finalI = i;
-            updateUser.ifPresent(selectUser -> {
-                selectUser.setUid(uidList.get(finalI));
-                memberRepository.save(selectUser);
-            });
+    public Map<String, String> update(@RequestBody ArrayList<ArrayList<String>> robot) throws JsonProcessingException {
+        for (int k = 0; k < robot.size(); k++) {
+            ArrayList<String> uidList = robot.get(k);
+            Integer countBook = userRepository.countAll();
+            int roof = Math.min(countBook, uidList.size());
+            List<Member> members = memberRepository.findAllByBookFloor(k+1);
+            for (int i = 0; i < roof; i++) {
+                int finalI = i;
+                int finalK = k;
+                members.get(i).setUid(uidList.get(finalI));
+                members.get(i).setBookFloor(finalK+1);
+                memberRepository.save(members.get(i));
+            }
         }
         Map<String, String> list = new HashMap<>();
         list.put("result", "True");
