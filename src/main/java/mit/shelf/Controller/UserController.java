@@ -1,6 +1,6 @@
 package mit.shelf.Controller;
 
-import mit.shelf.domain.Member;
+import mit.shelf.Form.UserForm;
 import mit.shelf.domain.User;
 import mit.shelf.repository.LibUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

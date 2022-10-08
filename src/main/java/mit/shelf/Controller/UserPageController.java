@@ -28,7 +28,7 @@ public class UserPageController {
 
     @Autowired
     bookLendingRepository bookLendingRepository;
-    
+
     @GetMapping(value = "/sea") public String search(@RequestParam(value = "keyword") String keyword, Model model, @RequestParam(value = "filter")String filter, @RequestParam(value = "categoryfilter")String categoryfilter, String category, @RequestParam(value = "id") Long id) {
 
         switch (categoryfilter){

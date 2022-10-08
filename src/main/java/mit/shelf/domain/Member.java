@@ -38,7 +38,7 @@ public class Member {
     private int bookFloor;
 
     @ColumnDefault("'X'")
-    private String bonor;
+    private String donor;
 
     private String category;
 
@@ -56,19 +56,19 @@ public class Member {
         this.smartUid = smartUid;
     }
 
-    public String getBonor() {
-        return bonor;
+    public String getDonor() {
+        return donor;
     }
 
-    public void setBonor(String bonor) {
-        this.bonor = bonor;
+    public void setDonor(String donor) {
+        this.donor = donor;
     }
 
     @PrePersist
     public void prePersist(){
         this.bookCmp = this.bookCmp == null ? 0 : this.bookCmp;
         this.bookFloor = this.bookFloor == 0 ? 1 : this.bookFloor;
-        this.bonor = this.bonor == null ? String.valueOf('x') : this.bonor;
+        this.donor = this.donor == null ? String.valueOf('x') : this.donor;
     }
 
     public Long getBookCmp() {

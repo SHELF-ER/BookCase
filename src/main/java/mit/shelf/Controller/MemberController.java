@@ -1,10 +1,9 @@
 package mit.shelf.Controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiOperation;
+import mit.shelf.Form.MemberForm;
 import mit.shelf.domain.Member;
 import io.swagger.annotations.Api;
-import mit.shelf.domain.User;
 import mit.shelf.repository.LibUserRepository;
 import mit.shelf.repository.MemberRepository;
 import mit.shelf.repository.UserRepository;
@@ -15,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
-@Api(tags = {"API 정보를 제공하는 Controller"})
 @Controller
 public class MemberController {
 
@@ -36,7 +34,7 @@ public class MemberController {
         model.addAttribute("members", members);
         return "members/memberList"; }
 
-    @ApiOperation(value = "조건에 맞는 게시글 목록을 반환하는 메소드")
+
     @GetMapping(value = "/members/errorBookList")
     public String errorBook(Model model){
         List<Member> members = memberService.findMembers();

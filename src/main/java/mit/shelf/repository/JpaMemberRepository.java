@@ -55,9 +55,9 @@ public class JpaMemberRepository implements MemberRepository{
     }
 
 //    @Override
-//    public List<Member> findByBonor(String bonor) {
-//        List<Member> result = em.createQuery("select m from Member m where m.bonor = :bonor", Member.class)
-//                .setParameter("bonor", bonor)
+//    public List<Member> findByBonor(String donor) {
+//        List<Member> result = em.createQuery("select m from Member m where m.donor = :donor", Member.class)
+//                .setParameter("donor", donor)
 //                .getResultList();
 //        return result;
 //    }

@@ -1,4 +1,4 @@
-package mit.shelf.Controller;
+package mit.shelf.Form;
 
 public class UserForm {
 
