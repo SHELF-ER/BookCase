@@ -31,6 +31,7 @@ dependencies {
     implementation group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '3.11'
     implementation group: 'org.apache.xmlbeans', name: 'xmlbeans', version: '2.6.0'
     implementation group: 'org.springframework.data', name: 'spring-data-elasticsearch', version: '4.3.3'
+    implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
 
 
     compileOnly group: 'commons-io', name: 'commons-io', version: '2.4'

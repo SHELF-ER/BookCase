@@ -22,7 +22,4 @@ public class UserService {
         return loginRepository.save(user);
     }
 
-
-
-
 }
