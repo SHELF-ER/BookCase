@@ -11,6 +11,9 @@ public interface MemberRepository {
     Optional<Member> findById(Long id);
     List<Member> findByName(String name);
     List<Member> findAll();
+
+//    List<Member> findAllReverse();
+
     Optional<Member> findByUid(String uid);
 
     List<Member> findByWriter(String writer);

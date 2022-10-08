@@ -28,6 +28,11 @@ public class JpaMemberRepository implements MemberRepository{
                 .getResultList();
     }
 
+//    public List<Member> findAllReverse() {
+//        return em.createQuery("select m from Member m order by m.uid desc", Member.class)
+//                .getResultList();
+//    }
+
     @Override
     public Optional<Member> findByUid(String uid) {
         List<Member> result = em.createQuery("select m from Member m where m.uid = :uid", Member.class)

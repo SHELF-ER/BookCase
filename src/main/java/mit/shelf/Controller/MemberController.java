@@ -13,10 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 //@Api(tags = {"API 정보를 제공하는 Controller"}) 오류
 @Controller
@@ -46,6 +43,7 @@ public class MemberController {
     @GetMapping(value = "/members/errorBookList")
     public String errorBook(Model model){
         List<Member> members = memberService.findMembers();
+        Collections.reverse(members);
         model.addAttribute("members", members);
 
         return "members/eBook";

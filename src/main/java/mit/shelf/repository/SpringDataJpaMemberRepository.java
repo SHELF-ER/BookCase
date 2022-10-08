@@ -11,6 +11,8 @@ public interface SpringDataJpaMemberRepository extends JpaRepository<Member,
 
     List<Member> findByName(String name);
 
+//    List<Member> findAllReverse();
+
     List<Member> findAllByBookFloor(int bookFloor);
 
     Optional<Member> findByUid(String uid);
