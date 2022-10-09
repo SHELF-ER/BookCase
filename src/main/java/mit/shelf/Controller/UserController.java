@@ -67,7 +67,7 @@ public class UserController {
 
     @GetMapping(value = "/member/name/{name}")
     @ResponseBody() // JSON
-    public String save(@PathVariable String name) {
+    public String saveUser(@PathVariable String name) {
         User user = new User();
         user.setName(name);
         libUserRepository.save(user);
@@ -82,7 +82,7 @@ public class UserController {
 //        return "redirect:/";
 //    }
 
-    @GetMapping(value = "/users/{uid}") public String rendList(@PathVariable String uid,Model model) {
+    @GetMapping(value = "/users/{uid}") public String bookRendList(@PathVariable String uid,Model model) {
         Optional<User> users = libUserRepository.findByUidU(uid);
         model.addAttribute("users", users);
         return "users/userRendList"; }
@@ -91,7 +91,7 @@ public class UserController {
 
     @RequestMapping(value = "/user/borrow/{uid}", method = RequestMethod.GET)
     @ResponseBody() // JSON
-    public Map<String, String> borrow(@PathVariable String uid) {
+    public Map<String, String> borrowBook(@PathVariable String uid) {
         Optional<User> members = libUserRepository.findByUidU(uid);
         Map<String, String> list = new HashMap<>();
 
@@ -109,7 +109,7 @@ public class UserController {
 
 
     @PostMapping(value = "/users/new")
-    public String create(UserForm form) {
+    public String createUser(UserForm form) {
         User member = new User();
         member.setName(form.getName());
         member.setPw(form.getPw());
@@ -118,12 +118,12 @@ public class UserController {
         return "redirect:/user";
     }
 
-    @GetMapping(value = "/users/new") public String createForm() {
+    @GetMapping(value = "/users/new") public String createUserForm() {
         return "users/createUserForm";
     }
 
     @RequestMapping(value = "/user/edit", method = RequestMethod.GET)
-    public String userEdit(@RequestParam("id") Long id, Model model) {
+    public String updateUserForm(@RequestParam("id") Long id, Model model) {
         Optional<User> user = libUserRepository.findById(id);
         user.ifPresent(selectUser -> {
             model.addAttribute("user", user);
@@ -132,7 +132,7 @@ public class UserController {
     }
 
     @PostMapping("/user/edit")
-    public String updateBook(UserForm form) {
+    public String updateUser(UserForm form) {
 
         Optional<User> updateUser = libUserRepository.findById(form.getId());
         updateUser.ifPresent(user -> {

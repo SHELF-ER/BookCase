@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @Controller
-public class MemberController {
+public class BookController {
 
     @Autowired
     MemberService memberService;
@@ -32,7 +32,7 @@ public class MemberController {
     @GetMapping(value = "/members") public String list(Model model) {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
-        return "members/memberList"; }
+        return "books/memberList"; }
 
 
     @GetMapping(value = "/members/errorBookList")
@@ -41,7 +41,7 @@ public class MemberController {
         Collections.reverse(members);
         model.addAttribute("members", members);
 
-        return "members/eBook";
+        return "books/eBook";
     }
 
     @PostMapping(value = "/members/new")
@@ -76,7 +76,7 @@ public class MemberController {
     public String listCheck(Model model) {
         List<Member> members = memberRepository.findAll();
         model.addAttribute("members", members);
-        return "members/memberList";
+        return "books/memberList";
     }
 
     @RequestMapping(value = "/book/edit", method = RequestMethod.GET)
@@ -85,7 +85,7 @@ public class MemberController {
         member.ifPresent(selectUser -> {
             model.addAttribute("member", member);
         });
-        return "members/editBookForm";
+        return "books/editBookForm";
     }
 
     //required 붙여서 무조건 값있도록
@@ -122,7 +122,7 @@ public class MemberController {
     @RequestMapping(value = "/book/delete", method = RequestMethod.GET)
     public String deleteBook(@RequestParam("uid") Long uid) {
         memberRepository.deleteById(uid);
-        return "/members/memberList";
+        return "/books/memberList";
     }
 
 //    @GetMapping(value = "/donater")
