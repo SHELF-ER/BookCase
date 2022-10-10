@@ -1,9 +1,7 @@
 package mit.shelf.Controller;
 
-import io.swagger.annotations.ApiOperation;
 import mit.shelf.Form.MemberForm;
 import mit.shelf.domain.Member;
-import io.swagger.annotations.Api;
 import mit.shelf.repository.LibUserRepository;
 import mit.shelf.repository.MemberRepository;
 import mit.shelf.repository.UserRepository;
@@ -32,8 +30,14 @@ public class BookController {
     @GetMapping(value = "/members") public String list(Model model) {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
-        return "books/memberList"; }
+        return "books/bookList"; }
 
+    @GetMapping(value = "/books/list")
+    public String listCheck(Model model) {
+        List<Member> members = memberRepository.findAll();
+        model.addAttribute("members", members);
+        return "books/bookList";
+    }
 
     @GetMapping(value = "/members/errorBookList")
     public String errorBook(Model model){
@@ -72,13 +76,6 @@ public class BookController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/books/list")
-    public String listCheck(Model model) {
-        List<Member> members = memberRepository.findAll();
-        model.addAttribute("members", members);
-        return "books/memberList";
-    }
-
     @RequestMapping(value = "/book/edit", method = RequestMethod.GET)
     public String bookEdit(@RequestParam("id") Long id, Model model) {
         Optional<Member> member = memberRepository.findById(id);
@@ -93,14 +90,14 @@ public class BookController {
     public String updateBook(MemberForm form) {
 
         Optional<Member> updateUser = memberRepository.findById(form.getId());
-        updateUser.ifPresent(member -> {
-            member.setName(form.getName());
-            member.setBookNum(form.getBookNum());
-            member.setBorrower(form.getBorrower());
-            member.setUid(form.getUid());
-            member.setBookFloor(form.getBookFloor());
-            member.setBookCmp(form.getBookCmp());
-            memberRepository.save(member);
+        updateUser.ifPresent(book -> {
+            book.setName(form.getName());
+            book.setBookNum(form.getBookNum());
+            book.setBorrower(form.getBorrower());
+            book.setUid(form.getUid());
+            book.setBookFloor(form.getBookFloor());
+            book.setBookCmp(form.getBookCmp());
+            memberRepository.save(book);
         });
         return "redirect:/";
     }
@@ -122,7 +119,7 @@ public class BookController {
     @RequestMapping(value = "/book/delete", method = RequestMethod.GET)
     public String deleteBook(@RequestParam("uid") Long uid) {
         memberRepository.deleteById(uid);
-        return "/books/memberList";
+        return "books/bookList";
     }
 
 //    @GetMapping(value = "/donater")
