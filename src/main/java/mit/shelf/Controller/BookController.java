@@ -88,7 +88,6 @@ public class BookController {
     //required 붙여서 무조건 값있도록
     @PostMapping("/book/edit")
     public String updateBook(MemberForm form) {
-
         Optional<Member> updateUser = memberRepository.findById(form.getId());
         updateUser.ifPresent(book -> {
             book.setName(form.getName());
@@ -103,17 +102,8 @@ public class BookController {
     }
 
     @RequestMapping(value = "/ebook/{uid}", method = RequestMethod.GET)
-    public String findEbook(@PathVariable String uid) {
+    public String findErrorBook(@PathVariable String uid) {
         return "";
-    }
-
-    @GetMapping(value = "/search")
-    public String search(@RequestParam(value = "keyword") String keyword, Model model) {
-
-        List<Member> search = memberRepository.findByName(keyword);
-        model.addAttribute("search", search);
-        return "borrow";
-
     }
 
     @RequestMapping(value = "/book/delete", method = RequestMethod.GET)

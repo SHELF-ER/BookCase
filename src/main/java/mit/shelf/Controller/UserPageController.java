@@ -67,6 +67,14 @@ public class UserPageController {
         return "/borrow";
     }
 
+    @GetMapping(value = "/search")
+    public String search(@RequestParam(value = "keyword") String keyword, Model model) {
+
+        List<Member> search = memberRepository.findByName(keyword);
+        model.addAttribute("search", search);
+        return "borrow";
+
+    }
 
     @GetMapping(value = "/sea/location") public String searchLocation(@RequestParam(value = "id") Long id, @RequestParam(value = "userId") Long userId, Model model) {
         int color1 = 0;
