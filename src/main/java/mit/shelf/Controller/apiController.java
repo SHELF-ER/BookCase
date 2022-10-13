@@ -201,7 +201,6 @@ public class apiController {
     @ApiOperation(value = "책 1권 대여")
     @RequestMapping(value = "/book/borrow/{bookUid}/{userUid}", method = RequestMethod.GET)
     public Map<String, String> borrowBook(@PathVariable String bookUid,@PathVariable Long userUid) {
-
         Optional<Member> user = memberRepository.findByUid(bookUid);
         Optional<User> userName = libUserRepository.findById(userUid);
         Map<String, String> list = new HashMap<>();
@@ -231,10 +230,8 @@ public class apiController {
             int roof = Math.min(countBook, uidList.size());
             List<Member> members = memberRepository.findAllByBookFloor(k+1);
             for (int i = 0; i < roof; i++) {
-                int finalI = i;
-                int finalK = k;
-                members.get(i).setUid(uidList.get(finalI));
-                members.get(i).setBookFloor(finalK+1);
+                members.get(i).setUid(uidList.get(i));
+                members.get(i).setBookFloor(k +1);
                 memberRepository.save(members.get(i));
             }
         }
@@ -246,7 +243,6 @@ public class apiController {
     @ApiOperation(value = "책 uid 처음 입력용(2층까지)")
     @PostMapping("/books/uidTest")
     public ArrayList<String> updateTest(@RequestBody ArrayList<ArrayList<String>> robot) throws JsonProcessingException {
-        Map<String, String> list = new HashMap<>();
         ArrayList<String> errorB = new ArrayList<>();
         for (int k = 0; k < robot.size(); k++) {
             ArrayList<String> robotUids = robot.get(k);
@@ -271,7 +267,6 @@ public class apiController {
     @ApiOperation(value = "잘못된 책 확인")
     @PostMapping("/books/check")
     public Map<String, String> listCheck(@RequestBody Map<String, ArrayList<String>> robotUid) throws JsonProcessingException {
-
         ArrayList<String> uidList;
         uidList = robotUid.get("id");
 
@@ -297,7 +292,6 @@ public class apiController {
     }
 
     public Boolean insertErrorBook(ArrayList<String> eb) {
-
         for (int i = 0; i <= eb.size() - 1; i++) {
             Optional<Member> updateUser = memberRepository.findByUid(eb.get(i));
             updateUser.ifPresent(selectUser -> {
@@ -309,7 +303,6 @@ public class apiController {
         return true;
     }
 
-    // book/rent?bookUid=aaa&userUid=bbb
     @ApiOperation(value = "책 1권 대여(구버전)")
     @RequestMapping(value = "/book/rent", method = RequestMethod.GET)
     public Map<String, String> rentBook(@RequestParam(value = "bookUid") String bookUid,
