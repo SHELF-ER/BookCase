@@ -27,7 +27,7 @@ public class BookController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping(value = "/members") public String list(Model model) {
+    @GetMapping(value = "/books") public String list(Model model) {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
         return "books/bookList"; }
@@ -39,7 +39,7 @@ public class BookController {
         return "books/bookList";
     }
 
-    @GetMapping(value = "/members/errorBookList")
+    @GetMapping(value = "/books/errorBookList")
     public String errorBook(Model model){
         List<Member> members = memberService.findMembers();
         Collections.reverse(members);
@@ -48,7 +48,7 @@ public class BookController {
         return "books/eBook";
     }
 
-    @PostMapping(value = "/members/new")
+    @PostMapping(value = "/book/new")
     public String create(MemberForm form) {
         Member member = new Member();
         member.setName(form.getName());
@@ -61,8 +61,8 @@ public class BookController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/members/new") public String createForm() {
-        return "members/createMemberForm";
+    @GetMapping(value = "/book/new") public String createForm() {
+        return "books/createMemberForm";
     }
 
     @GetMapping(value = "/books/cmpReset")

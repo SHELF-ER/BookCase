@@ -1,5 +1,6 @@
 package mit.shelf.Controller;
 
+import com.fasterxml.classmate.util.ResolvedTypeCache;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -244,6 +245,7 @@ public class apiController {
     @PostMapping("/books/uidTest")
     public ArrayList<String> updateTest(@RequestBody ArrayList<ArrayList<String>> robot) throws JsonProcessingException {
         ArrayList<String> errorB = new ArrayList<>();
+        Map<String, String> list = new HashMap<>();
         for (int k = 0; k < robot.size(); k++) {
             ArrayList<String> robotUids = robot.get(k);
             List<Member> members = memberRepository.findAllByBookFloor(k+1);
@@ -255,6 +257,7 @@ public class apiController {
                     errorB.add(member.get().getUid());
                 }
             }
+
             if (insertErrorBook(errorB)) {
                 list.put("result", "true");
             } else {

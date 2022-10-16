@@ -17,6 +17,6 @@ public class RecommendController {
     @GetMapping(value = "/bookRecommend") public String recommend(Model model) {
         List<Member> result = recommendRepository.recommendBook();
         model.addAttribute("recommends", result);
-        return "/members/recommendList";
+        return "/books/recommendList";
     }
 }
