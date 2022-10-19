@@ -4,6 +4,7 @@ import homecss from '../css/home.module.css';
 import backimg from '../img/background.png';
 
 function Home() {
+  document.documentElement.style.width = '100%';
   document.body.style.backgroundImage = "url(" + backimg + ")"
   
   return (

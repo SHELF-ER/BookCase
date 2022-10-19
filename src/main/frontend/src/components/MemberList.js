@@ -10,7 +10,7 @@ function MemberList() {
 		<div className={mlistcss.container}>
 			<header className={mlistcss.common}>
 				<div className={mlistcss.subtitle}>
-					<h2><Link to={'/'} style={{ color: 'white' }}>HOME</Link></h2>
+					  <h2><a href="http://localhost:8080/">HOME</a></h2>
 				</div>
 				<div className={mlistcss.topnav}>
 					<ul>

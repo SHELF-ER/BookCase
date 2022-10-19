@@ -32,7 +32,11 @@ ul {
     text-align: left;
     list-style: none;
 }
-li { list-style: none; }
+img {
+    width: 600px;
+    height: 200px;
+    margin: 0 5px;
+}
 
 a {
     text-decoration: none;
@@ -43,7 +47,6 @@ a:link, a:visited, a:hover, a:active {
     color: #444444;
 }
 
-img { border: 0; }
 button {
     width: 109px;
     height: 40px;
@@ -127,6 +130,7 @@ header.common {
 /* container 시작 */
 
 label {
+    color: black;
     display: block;
     width: 710px;
     font-size: 16px;

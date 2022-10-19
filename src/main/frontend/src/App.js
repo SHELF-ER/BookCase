@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState, Component } from 'react';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import axios from 'axios';
 //import Paper from '@mui/material/Paper';
 //import { Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
@@ -8,6 +8,7 @@ import Home from './components/Home';
 import CreateMemberForm from './components/CreateMemberForm';
 import MemberList from './components/MemberList';
 import Ebook from './components/Ebook';
+import BookDonate from './components/BookDonate';
 import Main from './components/Main';
 import Borrow from './components/Borrow';
 import Client from './components/Client';
@@ -63,6 +64,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mform" element={<CreateMemberForm />} />
+            <Route path="/donate" element={<BookDonate />} />
             <Route path="/mlist" element={<MemberList />} />
             <Route path="/ebook" element={<Ebook />} />
             <Route path="/main" element={
