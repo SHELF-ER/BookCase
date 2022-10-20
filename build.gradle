@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "com.moowork.node" version "1.3.1"
 }
 
 group = 'mit'
@@ -35,7 +36,6 @@ dependencies {
 
 
     compileOnly group: 'commons-io', name: 'commons-io', version: '2.4'
-
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'mysql:mysql-connector-java'
@@ -46,4 +46,40 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+def webappDir = "$projectDir/frontend/webtoon"
+
+node {
+    version = '12.6.0'
+    download=true
+    workDir = file("${project.buildDir}/nodejs")
+    npmWorkDir=file("${project.buildDir}/npm")
+}
+
+task appNpmInstall(type: NpmTask) {
+    workingDir = file("${project.projectDir}/frontend")
+    args = ["install"]
+}
+
+task yarnBuild(type: YarnTask) {
+    workingDir = file("${project.projectDir}/frontend")
+    args = ['build']
+}
+
+task copyWebApp(type: Copy) {
+    from "frontend/build"
+    into 'build/resources/main/static/.'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+}
+
+yarnBuild.dependsOn appNpmInstall
+copyWebApp.dependsOn yarnBuild
+compileJava.dependsOn copyWebApp
+
 targetCompatibility = JavaVersion.VERSION_1_8
