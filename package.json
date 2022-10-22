@@ -1,0 +1,10 @@
+{
+  "name": "BookCase",
+  "version": "1.0.0",
+  "description": "shelf-react",
+  "main": "index.js",
+  "repository": "https://github.com/SHELF-ER/BookCase.git",
+  "author": "woogi <dbwhddnr00@naver.com>",
+  "license": "MIT",
+  "private": true
+}
