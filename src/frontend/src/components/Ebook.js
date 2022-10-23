@@ -1,13 +1,12 @@
 import React  from 'react';
 import { Link } from 'react-router-dom';
 import ebookcss from '../css/index.module.css';
-import ProfileWithUseFetch from "./ProfileWithUseFetch";
+// import tableimg from '../img/wood.png';
 
 function Ebook() {
 	document.body.style.background = 'linear-gradient(#eee7c3,#e9e0ac)';
-  	return (
+  return (
 		<div className="Ebook">
-			<ProfileWithUseFetch/>
 			<section className={ebookcss.main}>
 				<table className={ebookcss.table}>
 					<thead>

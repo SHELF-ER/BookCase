@@ -221,7 +221,6 @@ public class apiController {
         return list;
     }
 
-
     @ApiOperation(value = "책 uid 처음 입력용(1층만)")
     @PostMapping("/books/uid")
     public Map<String, String> update(@RequestBody ArrayList<ArrayList<String>> robot) throws JsonProcessingException {
@@ -257,7 +256,6 @@ public class apiController {
                     errorB.add(member.get().getUid());
                 }
             }
-
             if (insertErrorBook(errorB)) {
                 list.put("result", "true");
             } else {
@@ -298,7 +296,6 @@ public class apiController {
         for (int i = 0; i <= eb.size() - 1; i++) {
             Optional<Member> updateUser = memberRepository.findByUid(eb.get(i));
             updateUser.ifPresent(selectUser -> {
-
                 selectUser.setBookCmp(Long.valueOf(1));
                 memberRepository.save(selectUser);
             });
@@ -324,7 +321,6 @@ public class apiController {
         } else {
             list.put("result", "error");
         }
-
         return list;
     }
 }
