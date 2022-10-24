@@ -8,9 +8,5 @@ import java.io.IOException;
 @JsonAutoDetect
 @Controller
 public class SendApiController {
-    @PostMapping("test")
-    @ResponseBody
-    public UID test(@RequestBody UID uid) throws IOException {
-        return uid;
-    }
+
 }
