@@ -27,6 +27,7 @@ public class BookController {
     @Autowired
     UserRepository userRepository;
 
+    //같은 함수 존재
     @GetMapping(value = "/books") public String list(Model model) {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);

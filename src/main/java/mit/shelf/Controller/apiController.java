@@ -330,4 +330,16 @@ public class apiController {
         }
         return list;
     }
+
+    @RequestMapping(value = "/member/{uid}", method = RequestMethod.GET)
+    public Map<String, String> search(@PathVariable String uid) {
+        Optional<User> users = libUserRepository.findByUidU(uid);
+        Map<String, String> list = new HashMap<>();
+        if (users.isPresent()) {
+            String  userName = users.get().getName();
+            list.put("Name", userName);
+        } else {
+            list.put("Name", "error");
+        }
+        return list; }
 }

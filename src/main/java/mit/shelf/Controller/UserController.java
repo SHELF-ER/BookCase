@@ -24,20 +24,7 @@ public class UserController {
         model.addAttribute("users", users);
         return "users/userList"; }
 
-    @RequestMapping(value = "/member/{uid}", method = RequestMethod.GET)
-    @ResponseBody() // JSON
-    public Map<String, String> search(@PathVariable String uid) {
-        Optional<User> users = libUserRepository.findByUidU(uid);
-        Map<String, String> list = new HashMap<>();
-        System.out.println(uid);
-        if (users.isPresent()) {
-            String  userName = users.get().getName();
-            list.put("Name", userName);
-        } else {
-            list.put("Name", "error");
-        }
 
-        return list; }
 
     @RequestMapping(value = "/user/LoginSBC/{name}/{pw}", method = RequestMethod.GET)
     @ResponseBody() // JSON
