@@ -9,6 +9,9 @@ public interface MemberRepository {
 
     Member save(Member member);
     Optional<Member> findById(Long id);
+
+    List<Member> findByDonor(String donor);
+
     List<Member> findByName(String name);
     List<Member> findAll();
 
@@ -26,5 +29,4 @@ public interface MemberRepository {
 
     Optional<Member> findBySmartUid(String smartUid);
 
-//    List<Member> findByBonor();
 }

@@ -113,11 +113,11 @@ public class BookController {
         return "books/bookList";
     }
 
-//    @GetMapping(value = "/donater")
-//    public String donater(Model model){
-//        List<Member> members = memberRepository.findByBonor();
-//        model.addAttribute("members", members);
-//
-//        return "members/eBook";
-//    }
+    @GetMapping(value = "/donater")
+    public String donater(Model model){
+        List<Member> members = memberRepository.findByDonor("test");
+        model.addAttribute("members", members);
+
+        return "members/eBook";
+    }
 }
