@@ -45,6 +45,11 @@ public class HomeController {
         return "main";
     }
 
+    @GetMapping(value = "/book/new")
+    public String createForm() {
+        return "books/createMemberForm";
+    }
+
     @GetMapping(value = "/borrow")
     public String borrow() {
         return "borrow";
@@ -94,5 +99,6 @@ public class HomeController {
     public String userdelete(){
         return "/userdelete";
     }
+
 
 }

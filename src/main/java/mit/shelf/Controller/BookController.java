@@ -62,9 +62,7 @@ public class BookController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/book/new") public String createForm() {
-        return "books/createMemberForm";
-    }
+
 
     @GetMapping(value = "/books/cmpReset")
     public String bookCmpReset() {
