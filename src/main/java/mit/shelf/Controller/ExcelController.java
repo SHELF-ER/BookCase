@@ -33,7 +33,6 @@ public class ExcelController {
         return "excel";
     }
 
-
     @PostMapping("/excel/read")
     public String readExcel(@RequestParam("file") MultipartFile file, Model model)
             throws IOException {
@@ -55,7 +54,7 @@ public class ExcelController {
 
         Sheet worksheet = workbook.getSheetAt(0);
 
-        for (int i = 1; i < worksheet.getPhysicalNumberOfRows(); i++) { // 4
+        for (int i = 1; i < worksheet.getPhysicalNumberOfRows(); i++) {
 
             Row row = worksheet.getRow(i);
             Member member = new Member();
@@ -66,7 +65,7 @@ public class ExcelController {
 
         }
 
-        model.addAttribute("datas", dataList); // 5
+        model.addAttribute("datas", dataList);
 
         return "home";
 

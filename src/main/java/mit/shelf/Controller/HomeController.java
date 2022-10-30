@@ -18,26 +18,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HomeController {
 
-    @Autowired
-    UserRepository userRepository;
-
-    @Autowired
-    eBookRepository eBookRepository;
-
-    @Autowired
-    MemberRepository memberRepository;
-
-    @Autowired
-    LibUserRepository libUserRepository;
-
     @GetMapping("/")
     public String home() {
         return "home";
-    }
-
-    @GetMapping("/user")
-    public String userHome() {
-        return "userHome";
     }
 
     @GetMapping(value = "/main")
@@ -58,6 +41,11 @@ public class HomeController {
     @GetMapping(value = "/myborrow")
     public String myborrow() {
         return "myborrow";
+    }
+
+    @GetMapping("/user")
+    public String userHome() {
+        return "userHome";
     }
 
     @GetMapping(value = "/client")
