@@ -55,18 +55,14 @@ public class ExcelController {
         Sheet worksheet = workbook.getSheetAt(0);
 
         for (int i = 1; i < worksheet.getPhysicalNumberOfRows(); i++) {
-
             Row row = worksheet.getRow(i);
             Member member = new Member();
             member.setBookNum((int) row.getCell(0).getNumericCellValue());
             member.setBorrower(row.getCell(1).getStringCellValue());
             member.setName(row.getCell(2).getStringCellValue());
             memberService.join(member);
-
         }
-
         model.addAttribute("datas", dataList);
-
         return "home";
 
     }
