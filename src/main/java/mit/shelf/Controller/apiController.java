@@ -49,7 +49,7 @@ public class apiController {
     }
 
     @ApiOperation(value = "모든 책 정보")
-    @GetMapping(value = "books")
+    @GetMapping(value = "books/error")
     public ArrayList<Map<String, String>> errorBookAPI(){
         List<Member> members = memberService.findMembers();
         ArrayList<Map<String,String>> list=new ArrayList<>();
