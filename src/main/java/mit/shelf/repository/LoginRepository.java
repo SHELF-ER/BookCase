@@ -9,19 +9,19 @@ import java.util.List;
 
 public interface LoginRepository extends JpaRepository<User,String> {
     @Query(value = "SELECT pw FROM user WHERE name = :name ", nativeQuery = true)
-    String compareByUserId(String name);
+    String compareByUserId(@Param("name") String name);
 
     @Query(value = "SELECT name FROM user WHERE name = :name ", nativeQuery = true)
-    String findByUserName(String name);
+    String findByUserName(@Param("name") String name);
 
     @Query(value = "SELECT id FROM user WHERE name = :name ", nativeQuery = true)
-    Long findByUserId(String name);
+    Long findByUserId(@Param("name") String name);
 
     @Query(value = "SELECT * FROM user WHERE id = :id ", nativeQuery = true)
-    User userNameIdSharing(Long id);
+    User userNameIdSharing(@Param("id") Long id);
 
 
-    @Query(value = "SELECT id,name,pw FROM user WHERE id = :id ", nativeQuery = true)
-    List<User> findByUnum(@Param("id") Long id);
+//    @Query(value = "SELECT id,name,pw FROM user WHERE id = :id ", nativeQuery = true)
+//    List<User> findByUnum(@Param("id") Long id);
 
 }
