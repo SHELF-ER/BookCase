@@ -40,12 +40,14 @@ public class apiController {
 
     @ApiOperation(value = "기부받은 책을 입력한다.(필수: name, donor)")
     @PostMapping(value = "/book/donate")
-    public String donateBook(Member form){
+    public Map<String,String> donateBook(Member form){
         Member member = new Member();
         member.setName(form.getName());
         member.setDonor(form.getDonor());
         memberService.join(member);
-        return "success";
+        Map<String,String> result = new HashMap<>();
+        result.put("result","success");
+        return result;
     }
 
     @ApiOperation(value = "모든 책 정보")
@@ -341,5 +343,6 @@ public class apiController {
         } else {
             list.put("Name", "error");
         }
-        return list; }
+        return list;
+    }
 }
