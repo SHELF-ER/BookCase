@@ -33,6 +33,11 @@ public class HomeController {
         return "books/createMemberForm";
     }
 
+    @GetMapping(value = "/book/donateBook")
+    public String donateBook() {
+        return "books/donateBook";
+    }
+
     @GetMapping(value = "/borrow")
     public String borrow() {
         return "borrow";
