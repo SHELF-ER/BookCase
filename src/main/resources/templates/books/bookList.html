@@ -40,19 +40,19 @@
       </thead>
       <tbody>
       <p class="important">id 클릭시 수정</p>
-      <tr th:each="member : ${members}">
+      <tr th:each="book : ${books}">
 
         <td style="width: 50px">
           <form th:action="@{'/book/edit'}" method="GET">
-            <input type="hidden" name="id" th:value="${member.id}">
-            <input class="input__id" th:type="submit" th:value="${member.id}" />
+            <input type="hidden" name="id" th:value="${book.id}">
+            <input class="input__id" th:type="submit" th:value="${book.id}" />
           </form>
         </td>
-        <td th:text="${member.name}">나</td>
-        <td th:text="${member.bookFloor}">다</td>
-        <td th:text="${member.borrower}">라</td>
-        <td th:text="${member.uid}">마</td>
-        <td th:text="${member.bookCmp}">마</td>
+        <td th:text="${book.name}">나</td>
+        <td th:text="${book.bookFloor}">다</td>
+        <td th:text="${book.borrower}">라</td>
+        <td th:text="${book.uid}">마</td>
+        <td th:text="${book.bookCmp}">마</td>
 
 
       </tr>
