@@ -11,12 +11,15 @@ import mit.shelf.repository.MemberRepository;
 import mit.shelf.repository.UserRepository;
 import mit.shelf.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
 @Api(tags = {"API 정보를 제공하는 Controller"})
 @RestController
+@RequestMapping("/api")
+@CrossOrigin
 public class apiController {
 //https://ggomi.github.io/boot-react/
 // https://velog.io/@u-nij/Spring-Boot-React.js-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-%EC%84%B8%ED%8C%85
@@ -33,7 +36,12 @@ public class apiController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/api/hello")
+    @GetMapping(value = "/users")
+    public List<User> apiUserList() {
+        List<User> users = libUserRepository.findAll();
+        return users; }
+
+    @GetMapping("/hello")
     public String testApi() {
         return "Hello, world!";
     }
