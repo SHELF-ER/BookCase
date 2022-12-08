@@ -34,6 +34,10 @@ public class apiController {
     public List<User> apiUserList() {
         return libUserRepository.findAll(); }
 
+    @PutMapping(value = "/user")
+    public List<User> insertUser() {
+        return libUserRepository.findAll(); }
+
     @GetMapping(value = "/books")
     public List<Member> apiBookList() {
         return memberService.findMembers();
