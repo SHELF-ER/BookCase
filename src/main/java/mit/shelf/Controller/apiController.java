@@ -1,6 +1,7 @@
 package mit.shelf.Controller;
 
 import io.swagger.annotations.Api;
+import mit.shelf.Form.UserForm;
 import mit.shelf.domain.Member;
 import mit.shelf.domain.User;
 import mit.shelf.repository.LibUserRepository;
@@ -35,8 +36,14 @@ public class apiController {
         return libUserRepository.findAll(); }
 
     @PutMapping(value = "/user")
-    public List<User> insertUser() {
-        return libUserRepository.findAll(); }
+    public List<User> insertUser(UserForm form) {
+        User member = new User();
+        member.setName(form.getName());
+        member.setPw(form.getPw());
+        member.setUid(form.getUid());
+        libUserRepository.save(member);
+        return "redirect:/user";
+    }
 
     @GetMapping(value = "/books")
     public List<Member> apiBookList() {
