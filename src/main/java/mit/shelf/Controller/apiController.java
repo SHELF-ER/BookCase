@@ -36,13 +36,15 @@ public class apiController {
         return libUserRepository.findAll(); }
 
     @PutMapping(value = "/user")
-    public List<User> insertUser(UserForm form) {
+    public Map<String, String> insertUser(UserForm form) {
         User member = new User();
         member.setName(form.getName());
         member.setPw(form.getPw());
         member.setUid(form.getUid());
         libUserRepository.save(member);
-        return "redirect:/user";
+        Map<String, String> list = new HashMap<>();
+        list.put("result", "success");
+        return list;
     }
 
     @GetMapping(value = "/books")
