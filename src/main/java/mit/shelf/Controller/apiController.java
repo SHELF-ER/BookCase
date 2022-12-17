@@ -35,7 +35,12 @@ public class apiController {
     public List<User> apiUserList() {
         return libUserRepository.findAll(); }
 
-    @PutMapping(value = "/user")
+    @GetMapping(value = "/books")
+    public List<Member> apiBookList() {
+        return memberService.findMembers();
+    }
+
+    @PostMapping(value = "/user")
     public Map<String, String> insertUser(UserForm form) {
         User member = new User();
         member.setName(form.getName());
@@ -47,8 +52,11 @@ public class apiController {
         return list;
     }
 
-    @GetMapping(value = "/books")
-    public List<Member> apiBookList() {
-        return memberService.findMembers();
+    @PutMapping(value = "/user")
+    public Map<String, String> updateUser(String id) {
+        Map<String, String> list = new HashMap<>();
+        list.put("result", "success");
+        return list;
     }
+
 }
