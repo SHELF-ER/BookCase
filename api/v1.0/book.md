@@ -12,7 +12,7 @@ Body = FormData로 통신하여 주고 받는 데이터
 
 {% swagger baseUrl="http://localhost:8080" method="get" path="/api/books" summary="read book list" %}
 {% swagger-description %}
-parameter X
+책 목록을 반환하는 api
 {% endswagger-description %}
 
 {% swagger-response status="200" description="Read success" %}
