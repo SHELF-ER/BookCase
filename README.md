@@ -1,16 +1,22 @@
+---
+description: Shelfer & Smart book case
+---
+
 # README
 
-shelfer & smart book case SHELFER: 사서의 일을 자동화 하는 도서관 프로그램 api 문서 정리 예정
+사서의 일을 자동화 하는 프로젝트
+
+### Ranguage
 
 * backend : Java + Python
-* frontend : js + timeleaf
+* frontend : js + timeletimeleaf
+* DB: Mysql, firebase
+* Etc: notion
 
 ### Frameworks
 
 * Spring Boot
 * React
-
-
 
 {% content-ref url="broken-reference" %}
 [Broken link](broken-reference)
